@@ -1,4 +1,108 @@
 BEGIN:VCALENDAR
 VERSION:2.0
 PRODID:-//Radar-Opos-TIC//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Radar oposiciones TIC
+X-WR-TIMEZONE:Atlantic/Canary
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+BEGIN:VEVENT
+UID:age-gsi-2025-2026-09-29-Lista-de-aprobados-del-primer-ejercicio@radar
+ -opos-tic
+DTSTAMP:20261007T132454Z
+DTSTART;VALUE=DATE:20260929
+DTEND;VALUE=DATE:20260930
+SUMMARY:📝 Lista de aprobados del primer ejercicio · Cuerpo de Gestión de
+  Sistemas e Informática (GSI) · Convocatoria 2025
+DESCRIPTION:📝 Lista de aprobados del primer ejercicio\n\nCuerpo de Gesti
+ ón de Sistemas e Informática (GSI) · Convocatoria 2025\n\nMás información
+ : https://sede.inap.gob.es/es/procedimientos-y-servicios/seleccion/proces
+ os-selectivos-de-cuerpos-y-escalas-generales/cuerpo-de-gestion-de-sistema
+ s-e-informatica-de-la-administracion-del-estado-ingreso-libre-convocatori
+ a-2025\n\nAñadido por Radar Opos TIC
+URL:https://sede.inap.gob.es/es/procedimientos-y-servicios/seleccion/proc
+ esos-selectivos-de-cuerpos-y-escalas-generales/cuerpo-de-gestion-de-siste
+ mas-e-informatica-de-la-administracion-del-estado-ingreso-libre-convocato
+ ria-2025
+CATEGORIES:Examen
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:📝 Lista de aprobados del primer ejercicio · Cuerpo de Gestió
+ n de Sistemas e Informática (GSI) · Convocatoria 2025
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:📝 Lista de aprobados del primer ejercicio · Cuerpo de Gestió
+ n de Sistemas e Informática (GSI) · Convocatoria 2025
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:BOC-A-2026-189-3288-2026-10-20-Fin-del-plazo@radar-opos-tic
+DTSTAMP:20261007T132454Z
+DTSTART;VALUE=DATE:20261020
+DTEND;VALUE=DATE:20261021
+SUMMARY:⏰ Fin del plazo · Dirección General de la Función Pública.- Resol
+ ución de 9 de septiembre de 2026\, por la q…
+DESCRIPTION:⏰ Fin del plazo\n\nDirección General de la Función Pública.- 
+ Resolución de 9 de septiembre de 2026\, por la que se convocan pruebas se
+ lectivas de personal funcionario de carrera de la Administración General 
+ de la Comunidad Autónoma de Canarias\, para ingresar\, por el sistema gen
+ eral de acceso libre\, en el Cuerpo Superior Facultativo\, Escala de Letr
+ adas y Letrados de la Comunidad Autónoma de Canarias\, en ejecución de la
+  Oferta de Empleo Público del año 2024\, aprobada mediante Decreto 207/20
+ 24\, de 16 de diciembre\, a la que se acumulan y se convocan plazas de la
+  Oferta de Empleo Público del año 2025\, aprobada por Decreto 188/2025\, 
+ de 15 de diciembre.\n\nMás información: https://www.gobiernodecanarias.or
+ g/boc/2026/189/3288.html\n\nAñadido por Radar Opos TIC
+URL:https://www.gobiernodecanarias.org/boc/2026/189/3288.html
+CATEGORIES:Plazo
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Fin del plazo · Dirección General de la Función Pública.- R
+ esolución de 9 de septiembre de 2026\, por la q…
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Fin del plazo · Dirección General de la Función Pública.- R
+ esolución de 9 de septiembre de 2026\, por la q…
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:BOC-A-2026-201-3462-2026-11-05-Fin-del-plazo-estimado-@radar-opos-tic
+DTSTAMP:20261007T132454Z
+DTSTART;VALUE=DATE:20261105
+DTEND;VALUE=DATE:20261106
+SUMMARY:⏰ Fin del plazo (estimado) · Dirección General de la Función Públ
+ ica.- Resolución de 24 de septiembre de 2026\, por la …
+DESCRIPTION:⏰ Fin del plazo (estimado)\n\nDirección General de la Función
+  Pública.- Resolución de 24 de septiembre de 2026\, por la que se declara
+  finalizado el procedimiento administrativo relativo a la convocatoria de
+  las pruebas selectivas para ingresar\, por promoción interna horizontal 
+ y vertical\, en el Cuerpo Superior Facultativo\, Escala de Inspección Méd
+ ica (Grupo A\, Subgrupo A1)\, de la Administración Pública de la Comunida
+ d Autónoma de Canarias\, aprobada por Resolución de 10 de abril de 2026.\
+ n\nMás información: https://www.gobiernodecanarias.org/boc/2026/201/3462.
+ html\n\nAñadido por Radar Opos TIC
+URL:https://www.gobiernodecanarias.org/boc/2026/201/3462.html
+CATEGORIES:Plazo
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Fin del plazo (estimado) · Dirección General de la Función 
+ Pública.- Resolución de 24 de septiembre de 2026\, por la …
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Fin del plazo (estimado) · Dirección General de la Función 
+ Pública.- Resolución de 24 de septiembre de 2026\, por la …
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
 END:VCALENDAR

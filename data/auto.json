@@ -1,1 +1,167 @@
-{ "items": [], "diasEscaneados": [], "boc": null, "errores": [], "generado": null }
+{
+ "items": [
+  {
+   "id": "BOC-A-2026-201-3462",
+   "fuente": "BOC",
+   "fecha": "2026-10-07",
+   "tipo": "convocatoria",
+   "admin": "Canarias",
+   "ambito": "CAN",
+   "organismo": "Dirección General de la Función Pública",
+   "titulo": "Dirección General de la Función Pública.- Resolución de 24 de septiembre de 2026, por la que se declara finalizado el procedimiento administrativo relativo a la convocatoria de las pruebas selectivas para ingresar, por promoción interna horizontal y vertical, en el Cuerpo Superior Facultativo, Escala de Inspección Médica (Grupo A, Subgrupo A1), de la Administración Pública de la Comunidad Autónoma de Canarias, aprobada por Resolución de 10 de abril de 2026.",
+   "url": "https://www.gobiernodecanarias.org/boc/2026/201/3462.html",
+   "pdf": "https://sede.gobiernodecanarias.org/boc/boc-a-2026-201-3462.pdf",
+   "revisarAnexo": true,
+   "datos": {
+    "plazo": null,
+    "plazas": [],
+    "tasas": [],
+    "titulacion": null,
+    "enlaces": [
+     "https://sede.gobiernodecanarias.org/sede/tramites/10698"
+    ],
+    "grupo": "A1"
+   },
+   "plazo": {
+    "dias": 20,
+    "tipo": "habiles",
+    "desde": "2026-10-07",
+    "fin": "2026-11-05",
+    "fuente": "estimado"
+   }
+  },
+  {
+   "id": "BOC-A-2026-199-3422",
+   "fuente": "BOC",
+   "fecha": "2026-10-05",
+   "tipo": "listas",
+   "admin": "Canarias",
+   "ambito": "CAN",
+   "organismo": "Dirección General de la Función Pública",
+   "titulo": "Dirección General de la Función Pública.- Resolución de 23 de septiembre de 2026, por la que se aprueba y se ordena la publicación de la lista provisional de personas admitidas y excluidas a las pruebas selectivas para ingresar, mediante promoción interna horizontal y vertical, en el Cuerpo Superior Facultativo, Escala Técnica Facultativa Superior, Especialidad de Tecnologías de la Información (Grupo A, Subgrupo A1), de la Administración Pública de la Comunidad Autónoma de Canarias, convocadas por Resolución de 10 de abril de 2026.",
+   "url": "https://www.gobiernodecanarias.org/boc/2026/199/3422.html",
+   "pdf": "https://sede.gobiernodecanarias.org/boc/boc-a-2026-199-3422.pdf",
+   "datos": {
+    "plazo": {
+     "dias": 10,
+     "tipo": "habiles",
+     "desdeSiguiente": true
+    },
+    "plazas": [],
+    "tasas": [],
+    "titulacion": null,
+    "enlaces": [
+     "https://www3.gobiernodecanarias.org/aplicaciones/sirhusprocsel/psadmitidosexcluidos",
+     "https://sede.gobiernodecanarias.org/sede/tramites/10956"
+    ],
+    "grupo": "A1"
+   }
+  },
+  {
+   "id": "BOE-A-2026-19784",
+   "fuente": "BOE",
+   "fecha": "2026-09-24",
+   "tipo": "tramite",
+   "admin": "AGE",
+   "ambito": "ES",
+   "organismo": "MINISTERIO PARA LA TRANSFORMACIÓN DIGITAL Y DE LA FUNCIÓN PÚBLICA",
+   "titulo": "Resolución de 16 de septiembre de 2026, de la Secretaría de Estado de Función Pública, por la que se modifica la composición del Tribunal calificador del proceso selectivo para ingreso, por el sistema general de acceso libre y promoción interna, en el Cuerpo Superior de Sistemas y Tecnologías de la Información de la Administración del Estado, convocado por Resolución de 16 de diciembre de 2025.",
+   "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-19784",
+   "pdf": "https://www.boe.es/boe/dias/2026/09/24/pdfs/BOE-A-2026-19784.pdf",
+   "xml": "https://www.boe.es/diario_boe/xml.php?id=BOE-A-2026-19784"
+  },
+  {
+   "id": "BOC-A-2026-189-3288",
+   "fuente": "BOC",
+   "fecha": "2026-09-21",
+   "tipo": "convocatoria",
+   "admin": "Canarias",
+   "ambito": "CAN",
+   "organismo": "Dirección General de la Función Pública",
+   "titulo": "Dirección General de la Función Pública.- Resolución de 9 de septiembre de 2026, por la que se convocan pruebas selectivas de personal funcionario de carrera de la Administración General de la Comunidad Autónoma de Canarias, para ingresar, por el sistema general de acceso libre, en el Cuerpo Superior Facultativo, Escala de Letradas y Letrados de la Comunidad Autónoma de Canarias, en ejecución de la Oferta de Empleo Público del año 2024, aprobada mediante Decreto 207/2024, de 16 de diciembre, a la que se acumulan y se convocan plazas de la Oferta de Empleo Público del año 2025, aprobada por Decreto 188/2025, de 15 de diciembre.",
+   "url": "https://www.gobiernodecanarias.org/boc/2026/189/3288.html",
+   "pdf": "https://sede.gobiernodecanarias.org/boc/boc-a-2026-189-3288.pdf",
+   "revisarAnexo": true,
+   "datos": {
+    "plazo": {
+     "dias": 20,
+     "tipo": "habiles",
+     "desdeSiguiente": true
+    },
+    "plazas": [],
+    "tasas": [],
+    "titulacion": "- Titulación exigible.",
+    "enlaces": [
+     "https://sede.gobiernodecanarias.org/sede/tramites/10698"
+    ],
+    "grupo": null
+   },
+   "plazo": {
+    "dias": 20,
+    "tipo": "habiles",
+    "desde": "2026-09-21",
+    "fin": "2026-10-20",
+    "fuente": "texto"
+   }
+  }
+ ],
+ "diasEscaneados": [
+  "2026-08-23",
+  "2026-08-24",
+  "2026-08-25",
+  "2026-08-26",
+  "2026-08-27",
+  "2026-08-28",
+  "2026-08-29",
+  "2026-08-30",
+  "2026-08-31",
+  "2026-09-01",
+  "2026-09-02",
+  "2026-09-03",
+  "2026-09-04",
+  "2026-09-05",
+  "2026-09-06",
+  "2026-09-07",
+  "2026-09-08",
+  "2026-09-09",
+  "2026-09-10",
+  "2026-09-11",
+  "2026-09-12",
+  "2026-09-13",
+  "2026-09-14",
+  "2026-09-15",
+  "2026-09-16",
+  "2026-09-17",
+  "2026-09-18",
+  "2026-09-19",
+  "2026-09-20",
+  "2026-09-21",
+  "2026-09-22",
+  "2026-09-23",
+  "2026-09-24",
+  "2026-09-25",
+  "2026-09-26",
+  "2026-09-27",
+  "2026-09-28",
+  "2026-09-29",
+  "2026-09-30",
+  "2026-10-01",
+  "2026-10-02",
+  "2026-10-03",
+  "2026-10-04",
+  "2026-10-05",
+  "2026-10-06",
+  "2026-10-07"
+ ],
+ "boc": {
+  "anio": 2026,
+  "num": 201
+ },
+ "errores": [
+  "Retribuciones del personal funcionario (AGE) · Ministerio de Hacienda · sueldo base: 2025: Solo se encontraron 0 grupos (se conserva el último dato válido)",
+  "Retribuciones del personal funcionario (AGE) · Ministerio de Hacienda · complemento de destino: 2025: Nivel 30 fuera de rango (se conserva el último dato válido)",
+  "Retribuciones del personal funcionario (Canarias) · Consejería de Hacienda · sueldo base: 2025: Solo se encontraron 2 grupos (se conserva el último dato válido)",
+  "Retribuciones del personal funcionario (Canarias) · Consejería de Hacienda · complemento de destino: 2025: Solo 0 niveles (se conserva el último dato válido)"
+ ],
+ "generado": "2026-10-07T13:24:54.954Z"
+}

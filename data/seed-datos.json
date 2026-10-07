@@ -1,1 +1,58 @@
-{}
+{
+ "age-cssti-2025": {
+  "datos": {
+   "plazo": {
+    "dias": 20,
+    "tipo": "habiles",
+    "desdeSiguiente": true
+   },
+   "plazas": [
+    "290 plazas de acceso libre",
+    "290 plazas",
+    "190 plazas",
+    "100 plazas"
+   ],
+   "tasas": [
+    31.1,
+    15.55,
+    7.78
+   ],
+   "titulacion": "6 El personal funcionario español de Organismos Internacionales podrá acceder al empleo público siempre que posea la titulación requerida y supere los correspondientes procesos selectivos.",
+   "enlaces": [
+    "https://sede.inap.gob.es/",
+    "http://administracion.gob.es",
+    "https://sede.administracion.gob.es/carpeta/clave.htm",
+    "https://ips.redsara.es/IPSC/secure/buscarConvocatorias"
+   ],
+   "grupo": "A2"
+  },
+  "actualizado": "2026-10-07",
+  "plazo": {
+   "dias": 20,
+   "tipo": "habiles",
+   "desde": "2025-12-18",
+   "fin": "2026-01-20",
+   "fuente": "texto"
+  }
+ },
+ "can-a2-ti-2026": {
+  "datos": {
+   "plazo": null,
+   "plazas": [],
+   "tasas": [],
+   "titulacion": "- Titulación exigible (Anexo V).",
+   "enlaces": [
+    "https://sede.gobiernodecanarias.org/sede/tramites/10698"
+   ],
+   "grupo": "A1"
+  },
+  "actualizado": "2026-10-07",
+  "plazo": {
+   "dias": 20,
+   "tipo": "habiles",
+   "desde": "2026-03-24",
+   "fin": "2026-04-23",
+   "fuente": "estimado"
+  }
+ }
+}

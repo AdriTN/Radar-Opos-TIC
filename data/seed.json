@@ -1,0 +1,94 @@
+{
+  "verificado": "2026-10-07",
+  "procesos": [
+    {
+      "id": "age-gsi-2025",
+      "titulo": "Cuerpo de Gestión de Sistemas e Informática (GSI) · Convocatoria 2025",
+      "admin": "AGE",
+      "grupo": "A2",
+      "acceso": "Libre",
+      "estado": "en_curso",
+      "resumen": "Proceso en marcha. Ya se publicó la lista de quienes superaron el primer ejercicio (29/09/2026). El segundo ejercicio figura como pendiente en la ficha oficial del INAP.",
+      "plazas": null,
+      "fechas": [
+        { "fecha": "2025-12-23", "etiqueta": "Abre la inscripción" },
+        { "fecha": "2026-01-22", "etiqueta": "Cierra la inscripción" },
+        { "fecha": "2026-05-23", "etiqueta": "Primer ejercicio" },
+        { "fecha": "2026-09-29", "etiqueta": "Lista de aprobados del primer ejercicio" },
+        { "fecha": null, "texto": "Sin fecha publicada", "etiqueta": "Segundo ejercicio" }
+      ],
+      "enlaces": [
+        { "tipo": "oficial", "texto": "Ficha oficial (INAP)", "url": "https://sede.inap.gob.es/es/procedimientos-y-servicios/seleccion/procesos-selectivos-de-cuerpos-y-escalas-generales/cuerpo-de-gestion-de-sistemas-e-informatica-de-la-administracion-del-estado-ingreso-libre-convocatoria-2025" }
+      ],
+      "nota": "Interesa también para la bolsa de interinos. Revisa la ficha del INAP para el calendario del segundo ejercicio."
+    },
+    {
+      "id": "age-oep-2026-tic",
+      "titulo": "AGE · Oferta de Empleo Público 2026 (cuerpos TIC: GSI, TAI, Superior de Sistemas y TI)",
+      "admin": "AGE",
+      "grupo": "A1 / A2 / C1",
+      "acceso": "Libre",
+      "estado": "proximo",
+      "resumen": "El Consejo de Ministros aprobó la OEP 2026 el 5/05/2026 con unas 1.700 plazas en cuerpos TIC (+42% sobre la anterior). Las convocatorias concretas de cada cuerpo aún hay que esperarlas en el BOE.",
+      "plazas": "≈1.700 (total TIC)",
+      "fechas": [
+        { "fecha": "2026-05-05", "etiqueta": "Aprobada la OEP 2026 en Consejo de Ministros" },
+        { "fecha": null, "texto": "Pendiente de publicar", "etiqueta": "Convocatoria GSI / TAI / Superior en el BOE" }
+      ],
+      "enlaces": [
+        { "tipo": "oficial", "texto": "Nota oficial de la OEP 2026", "url": "https://digital.gob.es/content/dam/portal-mtdfp/comunicacion/comunicacion_ministro/2026/05/050526NdPOEP2026.pdf" },
+        { "tipo": "oficial", "texto": "Procesos GSI (Función Pública)", "url": "https://digital.gob.es/funcion-publica/dgfp/acceso-empleo-publico/convocatorias-personal-funcionario/generales/convocatorias-2021/gsi-2021--2022---2023--y-2024" }
+      ],
+      "nota": "El desglose por cuerpo no aparece en la nota de prensa. El radar avisará cuando el BOE publique las convocatorias."
+    },
+    {
+      "id": "can-a2-ti-2026",
+      "titulo": "Gobierno de Canarias · Técnicos Facultativos de Grado Medio, Tecnologías de la Información (A2TINL26)",
+      "admin": "Canarias",
+      "grupo": "A2",
+      "acceso": "Libre",
+      "estado": "en_curso",
+      "resumen": "Convocatoria con la inscripción ya cerrada. El primer ejercicio (test) fue en julio con resultados en agosto, y el segundo ejercicio (práctico) estaba convocado para septiembre de 2026.",
+      "plazas": "6",
+      "fechas": [
+        { "fecha": "2026-03-24", "etiqueta": "Publicada la convocatoria (BOC)" },
+        { "fecha": "2026-03-25", "etiqueta": "Abre la inscripción" },
+        { "fecha": "2026-04-23", "etiqueta": "Cierra la inscripción" },
+        { "fecha": null, "texto": "Julio 2026 (día no confirmado)", "etiqueta": "Primer ejercicio (test)" },
+        { "fecha": null, "texto": "Septiembre 2026 (día no confirmado)", "etiqueta": "Segundo ejercicio (práctico)" }
+      ],
+      "enlaces": [
+        { "tipo": "oficial", "texto": "Ficha oficial en Función Pública", "url": "https://www.gobiernodecanarias.org/administracionespublicas/funcionpublica/acceso/convocatorias-en-curso/2026/Acceso_libre/ficha/TECNOLOGIAS-DE-LA-INFORMACION-Turno-Libre-00002/" },
+        { "tipo": "bases", "texto": "Anuncio en el BOC (24/03/2026)", "url": "https://www.gobiernodecanarias.org/boc/2026/057/948.html" }
+      ],
+      "nota": "Es un ejemplo útil para ver el calendario real de una convocatoria autonómica. Para la siguiente, vigila la lista de convocatorias en curso."
+    },
+    {
+      "id": "can-a1-ti-2026",
+      "titulo": "Gobierno de Canarias · Técnicos Facultativos Superiores, Tecnologías de la Información (A1TIL26)",
+      "admin": "Canarias",
+      "grupo": "A1",
+      "acceso": "Libre",
+      "estado": "en_curso",
+      "resumen": "Figura entre las convocatorias de acceso libre 2026 con ficha actualizada el 20/09/2026. No he podido leer plazas ni calendario desde la ficha, así que míralo en el enlace.",
+      "plazas": null,
+      "fechas": [
+        { "fecha": null, "texto": "Consultar en la ficha oficial", "etiqueta": "Calendario" }
+      ],
+      "enlaces": [
+        { "tipo": "oficial", "texto": "Ficha oficial en Función Pública", "url": "https://www.gobiernodecanarias.org/administracionespublicas/funcionpublica/acceso/convocatorias-en-curso/2026/Acceso_libre/ficha/TECNOLOGIAS-DE-LA-INFORMACION-Turno-Libre-00001/" }
+      ],
+      "nota": "Grupo A1: exige titulación universitaria de grado o equivalente."
+    }
+  ],
+  "fuentes": [
+    { "grupo": "AGE", "texto": "BOE · Oposiciones y concursos (sección II.B)", "url": "https://www.boe.es/diario_boe/", "ayuda": "Lo escanea el radar cada día." },
+    { "grupo": "AGE", "texto": "INAP · Procesos selectivos de cuerpos generales", "url": "https://sede.inap.gob.es/es/procedimientos-y-servicios/seleccion/procesos-selectivos-de-cuerpos-y-escalas-generales" },
+    { "grupo": "AGE", "texto": "Función Pública · Convocatorias de personal funcionario", "url": "https://digital.gob.es/funcion-publica/dgfp/acceso-empleo-publico/convocatorias-personal-funcionario/generales/convocatorias-2021/gsi-2021--2022---2023--y-2024" },
+    { "grupo": "Canarias", "texto": "Función Pública · Convocatorias 2026 acceso libre", "url": "https://www.gobiernodecanarias.org/administracionespublicas/funcionpublica/acceso/convocatorias-en-curso/2026/Acceso_libre/" },
+    { "grupo": "Canarias", "texto": "Boletín Oficial de Canarias (BOC)", "url": "https://www.gobiernodecanarias.org/boc/" },
+    { "grupo": "Canarias", "texto": "Sede electrónica del Gobierno de Canarias", "url": "https://sede.gobiernodecanarias.org/" },
+    { "grupo": "Gran Canaria", "texto": "Boletín Oficial de la Provincia de Las Palmas", "url": "https://www.boplaspalmas.net/" },
+    { "grupo": "Gran Canaria", "texto": "Cabildo de Gran Canaria", "url": "https://cabildo.grancanaria.com/" }
+  ]
+}

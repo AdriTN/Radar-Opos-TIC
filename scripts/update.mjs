@@ -2,7 +2,7 @@
 // Lee BOE (API abierta), BOC (índices HTML), tablas oficiales de retribuciones (PDF) y vigila páginas oficiales.
 // Salidas en data/: auto.json, watch.json, salud.json, retribuciones.json, historico.json, seed-datos.json,
 // calendario.ics y nuevos.md (aviso para el Issue de GitHub).
-import { readFile, writeFile, mkdtemp, rm } from "node:fs/promises";
+import { readFile, writeFile, mkdtemp, rm, mkdir } from "node:fs/promises";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import { createHash } from "node:crypto";
@@ -244,6 +244,13 @@ export async function ejecutar({ raiz = RAIZ, red = new Red(), pdf = pdfATexto, 
     .map((t) => ({ uid: `${t.pid}-${t.fecha}-${t.etiqueta}`.replace(/\W+/g, "-"), fecha: t.fecha, url: t.url, ...datosEvento(t.etiqueta, t.titulo, t.url) }))
     .sort((a, b) => a.fecha.localeCompare(b.fecha));
   await writeFile(f("data", "calendario.ics"), generarICS(eventos, ahora.toISOString()));
+  // Archivos .ics por proceso y de todos: enlaces https reales para que iPhone ofrezca "Añadir todo" al Calendario
+  await mkdir(f("data", "ics"), { recursive: true });
+  const evDe = (t) => ({ uid: `${t.pid}-${t.fecha}-${t.etiqueta}`.replace(/\W+/g, "-"), fecha: t.fecha, url: t.url, ...datosEvento(t.etiqueta, t.titulo, t.url) });
+  const vivos = todos.filter((t) => !t.cerrado && t.fecha >= hoy).sort((a, b) => a.fecha.localeCompare(b.fecha));
+  await writeFile(f("data", "ics", "todas.ics"), generarICS(vivos.map(evDe), ahora.toISOString()));
+  const porId = {}; for (const t of vivos) (porId[t.pid] ||= []).push(t);
+  for (const [pid, ts] of Object.entries(porId)) await writeFile(f("data", "ics", pid.replace(/\W+/g, "-") + ".ics"), generarICS(ts.map(evDe), ahora.toISOString()));
   // Recordatorios: sin intervención tuya. Solo de lo que sigues y cuando faltan 7, 3, 1 o 0 días.
   for (const t of todos) {
     const n = difDias(t.fecha, hoy); if (!REC_DIAS.includes(n) || !sigo.includes(t.pid)) continue;

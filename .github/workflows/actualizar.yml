@@ -15,6 +15,7 @@ on:
       - "data/seed-datos.json"
       - "data/festivos-oficiales.json"
       - "data/calendario.ics"
+      - "data/ics/**"
       - "data/nuevos.md"
 
 permissions:
@@ -53,7 +54,7 @@ jobs:
         run: |
           git config user.name "radar-bot"
           git config user.email "radar-bot@users.noreply.github.com"
-          git add data/auto.json data/watch.json data/salud.json data/retribuciones.json data/historico.json data/seed-datos.json data/festivos-oficiales.json data/calendario.ics
+          git add data/auto.json data/watch.json data/salud.json data/retribuciones.json data/historico.json data/seed-datos.json data/festivos-oficiales.json data/calendario.ics data/ics
           git diff --cached --quiet || git commit -m "Datos actualizados $(date -u +%F)"
           git pull --rebase --autostash || true
           git push || true

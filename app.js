@@ -179,16 +179,16 @@ const eventosFuturos = (p) => (p.fechas || []).filter((f) => f.fecha && dif(f.fe
 const diaSig = (f) => { const d = new Date(f + "T12:00:00Z"); d.setUTCDate(d.getUTCDate() + 1); return d.toISOString().slice(0, 10); };
 const plantillaGoogle = (e) => `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(e.resumen)}&dates=${e.fecha.replaceAll("-", "")}/${diaSig(e.fecha).replaceAll("-", "")}&details=${encodeURIComponent(e.descripcion)}${e.url ? `&location=${encodeURIComponent(e.url)}` : ""}`;
 // Al móvil (Android o iOS): se entrega un .ics por la hoja de compartir del sistema y el propio calendario del teléfono pide confirmar y añade todo.
-async function enviarAlCalendario(evs) {
+async function enviarAlCalendario(evs, icsUrl) {
   const txt = generarICS(evs, new Date().toISOString()), nombre = "radar-opos-tic.ics";
   const ios = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-  if (ios) { // iPhone/iPad: Safari reconoce el .ics abierto como tal y ofrece "Añadir todo" al Calendario
-    const u = URL.createObjectURL(new Blob([txt], { type: "text/calendar" })); const w = window.open(u, "_blank"); if (!w) location.href = u;
-    return aviso("Pulsa «Añadir todo» en la ventana de Calendario");
+  if (ios && icsUrl) { // iPhone/iPad: un enlace https real a un .ics hace que Safari ofrezca "Añadir todo" al Calendario
+    aviso("Pulsa «Añadir todo» en la ventana de Calendario");
+    location.href = new URL(icsUrl, location.href).href; return;
   }
-  if (matchMedia("(pointer:coarse)").matches && navigator.canShare && navigator.share) {
+  if (matchMedia("(pointer:coarse)").matches && navigator.share) {
     const f = new File([txt], nombre, { type: "text/calendar" });
-    if (navigator.canShare({ files: [f] })) {
+    if (!navigator.canShare || navigator.canShare({ files: [f] })) {
       try { await navigator.share({ files: [f], title: "Fechas de Radar Opos TIC" }); aviso("Elige tu app de Calendario para añadirlas"); return; }
       catch (e) { if (e.name === "AbortError") return; }
     }
@@ -224,9 +224,9 @@ async function gInsertar(evs) {
   }
   return { nuevos, repetidos };
 }
-async function anadirACalendario(evs) {
+async function anadirACalendario(evs, icsUrl) {
   if (!evs.length) return aviso("No hay fechas futuras que añadir");
-  if (!gId()) return enviarAlCalendario(evs); // calendario del móvil (Android o iOS)
+  if (!gId()) return enviarAlCalendario(evs, icsUrl); // calendario del móvil (Android o iOS)
   if (evs.length > 1 && !confirm(`Se añadirán ${evs.length} eventos a tu Google Calendar (con avisos 7 días y 1 día antes). ¿Continuar?`)) return;
   try { const r = await gInsertar(evs); aviso(`Calendario: ${r.nuevos} añadido(s)${r.repetidos ? `, ${r.repetidos} ya estaban` : ""}`); }
   catch (e) { aviso(`No se pudo añadir: ${e.message}. Probando con la plantilla…`); if (evs.length === 1) window.open(plantillaGoogle(evs[0]), "_blank", "noopener"); }
@@ -459,11 +459,11 @@ document.addEventListener("click", (e) => {
     else if (act === "addcal" || act === "addcalTodo") {
       const pr = P.find((x) => x.id === a.dataset.pid); if (!pr) return;
       if (act === "addcal") anadirACalendario([eventoDe(pr, { fecha: a.dataset.f, etiqueta: a.dataset.e })]);
-      else anadirACalendario(eventosFuturos(pr));
+      else anadirACalendario(eventosFuturos(pr), `data/ics/${pr.id.replace(/\W+/g, "-")}.ics`);
       return;
     }
-    else if (act === "addcalTodas") { anadirACalendario(P.filter((x) => x._e !== "cerrado").flatMap(eventosFuturos)); return; }
-    else if (act === "addcalSigo") { const seg = P.filter((x) => Sit.get(x.id).sigo); anadirACalendario(seg.flatMap(eventosFuturos)); return; }
+    else if (act === "addcalTodas") { anadirACalendario(P.filter((x) => x._e !== "cerrado").flatMap(eventosFuturos), "data/ics/todas.ics"); return; }
+    else if (act === "addcalSigo") { const seg = P.filter((x) => Sit.get(x.id).sigo); anadirACalendario(seg.flatMap(eventosFuturos), "data/calendario.ics"); return; }
     else if (act === "exportar") { const b = new Blob([JSON.stringify(Sit.data, null, 1)], { type: "application/json" }); const l = document.createElement("a"); l.href = URL.createObjectURL(b); l.download = "mi-situacion.json"; l.click(); return; }
     render(); return;
   }

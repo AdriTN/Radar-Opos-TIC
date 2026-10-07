@@ -224,9 +224,12 @@ async function anadirACalendario(evs) {
 /* ============ estado de la interfaz ============ */
 const UI = { fEstado: "todos", fAdmin: "todas", q: "", soloSigo: lsGet("soloSigo", "0") === "1", cmp: null };
 let P = [];
-const RUTAS = { inicio: ["Inicio", "home"], procesos: ["Procesos", "list"], comparar: ["Comparar", "cmp"], bolsas: ["Bolsas", "bag"], mas: ["Más", "more"], historico: ["Histórico", "hist"], calendario: ["Calendario", "cal"], fuentes: ["Fuentes y salud", "pulse"], ajustes: ["Ajustes", "cog"] };
-const TABS = ["inicio", "procesos", "comparar", "bolsas", "mas"], LATERAL = ["inicio", "procesos", "comparar", "bolsas", "historico", "calendario", "fuentes", "ajustes"];
-const SUB = ["historico", "calendario", "fuentes", "ajustes"];
+const RUTAS = { inicio: ["Inicio", "home"], procesos: ["Procesos", "list"], comparar: ["Comparar", "cmp"], bolsas: ["Bolsas", "bag"], historico: ["Histórico", "hist"], calendario: ["Calendario", "cal"], fuentes: ["Fuentes y salud", "pulse"], ajustes: ["Ajustes", "cog"] };
+const TABS = ["inicio", "procesos", "comparar", "calendario"], LATERAL = ["inicio", "procesos", "comparar", "bolsas", "historico", "calendario", "fuentes", "ajustes"];
+const SUB = ["fuentes", "ajustes"];
+const GRUPO_PROC = [["procesos", "Oposiciones"], ["bolsas", "Bolsas"], ["historico", "Histórico"]];
+const segmento = (r) => (GRUPO_PROC.some(([k]) => k === r) ? `<div class="seg solo-movil" role="tablist" aria-label="Sección">${GRUPO_PROC.map(([k, t]) => `<a href="${aRuta(k)}" role="tab" ${k === r ? 'aria-current="page" aria-selected="true"' : ""}>${esc(t)}</a>`).join("")}</div>` : "");
+const hayAlertaFuentes = () => Object.values(D.salud.fuentes || {}).some((s) => !s.ok && s.fallosSeguidos >= 3);
 
 function ruta() {
   const h = location.hash.replace(/^#\/?/, ""); const [path, qs] = h.split("?"); const q = new URLSearchParams(qs || "");
@@ -400,26 +403,28 @@ function vAjustes() {
   <h2 class="sec">Avisos en el móvil</h2><div class="card"><p style="margin:0">Cuando el radar detecta una convocatoria nueva, un cambio en una página oficial o el calendario de fiestas del año siguiente, abre un aviso (Issue) en tu repositorio. Instala <b>GitHub Mobile</b>, inicia sesión y activa las notificaciones de este repositorio. Además, suscribe tu calendario desde la sección <a href="${aRuta("calendario")}">Calendario</a>.</p></div>
   <h2 class="sec">Copia de seguridad</h2><div class="card"><div class="btns"><button class="btn" data-act="exportar">Exportar mi situación</button><label class="btn" style="cursor:pointer">Importar<input type="file" accept="application/json" data-act="importar" hidden></label></div></div>`;
 }
-function vMas() {
-  return `<div class="card more list">${["historico", "calendario", "fuentes", "ajustes"].map((r) => `<a class="it" href="${aRuta(r)}">${ico(RUTAS[r][1])}<b>${esc(RUTAS[r][0])}</b></a>`).join("")}</div><p class="foot">Radar Opos TIC · datos oficiales del BOE, BOC y organismos, actualizados cada mañana.</p>`;
-}
 
 /* ============ render y eventos ============ */
 let toastT;
 function aviso(t) { const el = $("#toast"); el.textContent = t; el.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => (el.hidden = true), 2600); }
+function accionesBarra(r) {
+  const f = $("#bFuentes"), a = $("#bAjustes");
+  f.innerHTML = ico("pulse") + (hayAlertaFuentes() ? '<i class="punto"></i>' : ""); f.href = aRuta("fuentes"); f.toggleAttribute("aria-current", r === "fuentes");
+  a.innerHTML = ico("cog"); a.href = aRuta("ajustes"); a.toggleAttribute("aria-current", r === "ajustes");
+}
 function navegacion() {
-  const { r } = ruta(); const act = (k) => (k === r || (k === "mas" && SUB.includes(r)) ? 'aria-current="page"' : "");
-  $("#tabs").innerHTML = TABS.map((k) => `<a href="${aRuta(k)}" ${act(k)}><span class="pill">${ico(RUTAS[k][1])}</span>${esc(k === "mas" ? "Más" : RUTAS[k][0].split(" ")[0])}</a>`).join("");
+  const { r } = ruta(); const act = (k) => (k === r || (k === "procesos" && GRUPO_PROC.some(([g]) => g === r)) ? 'aria-current="page"' : "");
+  $("#tabs").innerHTML = TABS.map((k) => `<a href="${aRuta(k)}" ${act(k)}><span class="pill">${ico(RUTAS[k][1])}</span>${esc(RUTAS[k][0].split(" ")[0])}</a>`).join("");
   $("#side").innerHTML = `<div class="brand"><img src="icon.svg" alt="">Radar Opos TIC</div>${LATERAL.map((k, i) => `${i === 4 ? '<div class="sep"></div>' : ""}<a href="${aRuta(k)}" ${k === r ? 'aria-current="page"' : ""}>${ico(RUTAS[k][1])}${esc(RUTAS[k][0])}</a>`).join("")}<div class="pie">${D.auto.generado ? "Revisión automática: " + esc(fmt(D.auto.generado)) : "Sin revisión automática todavía"}</div>`;
 }
 let rutaPrev = null;
 function render() {
   const { r, p } = ruta(); P = construir();
   document.title = `${RUTAS[r][0]} · Radar Opos TIC`; $("#titulo").textContent = RUTAS[r][0];
-  const atras = $("#atras"); atras.hidden = !SUB.includes(r); atras.innerHTML = ico("back"); atras.dataset.go = aRuta("mas");
-  const vista = { inicio: vInicio, procesos: vProcesos, comparar: vComparar, bolsas: vBolsas, mas: vMas, historico: vHistorico, calendario: vCalendario, fuentes: vFuentes, ajustes: vAjustes }[r];
+  const atras = $("#atras"); atras.hidden = !SUB.includes(r); atras.innerHTML = ico("back"); atras.dataset.go = aRuta("inicio");
+  const vista = { inicio: vInicio, procesos: vProcesos, comparar: vComparar, bolsas: vBolsas, historico: vHistorico, calendario: vCalendario, fuentes: vFuentes, ajustes: vAjustes }[r];
   const y = rutaPrev === r ? window.scrollY : 0; rutaPrev = r; const foco = document.activeElement?.dataset?.act === "buscar"; const pos = foco ? document.activeElement.selectionStart : 0;
-  $("#vista").innerHTML = vista(); navegacion(); pintarSync();
+  $("#vista").innerHTML = segmento(r) + vista(); navegacion(); accionesBarra(r); pintarSync();
   if (foco) { const s = $('[data-act="buscar"]'); s?.focus(); s?.setSelectionRange(pos, pos); }
   const wrap = $("#sheetWrap"); const proc = p && P.find((x) => x.id === p);
   if (proc) { $("#sheet").innerHTML = `<div class="grab"><i></i><button class="ibtn" data-act="cerrar" aria-label="Cerrar">${ico("close")}</button></div>${vDetalle(proc)}`; if (!wrap.classList.contains("on")) { wrap.classList.add("on"); $("#sheet").scrollTop = 0; document.body.style.overflow = "hidden"; } }
@@ -454,7 +459,7 @@ document.addEventListener("click", (e) => {
   if (e.target.closest(".stat[data-filtro]")) { UI.fEstado = e.target.closest(".stat").dataset.filtro; return; }
   if (e.target.id === "scrim") { const { r } = ruta(); location.hash = aRuta(r); return; }
   if (go && !e.target.closest("a,button,input,select,textarea")) location.hash = go.dataset.go;
-  if (e.target.closest("#atras")) location.hash = aRuta("mas");
+  if (e.target.closest("#atras")) location.hash = aRuta("inicio");
 });
 document.addEventListener("input", (e) => {
   const t = e.target;

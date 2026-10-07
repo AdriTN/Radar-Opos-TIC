@@ -5,6 +5,7 @@ App web instalable (móvil y PC) con convocatorias, plazos, bolsas de empleo, co
 ## Qué hace
 
 - **Inicio**: próxima fecha, avisos que te afectan (plazos que vencen, convocatorias generales que pueden incluir TI, páginas oficiales que cambiaron), tus procesos y novedades.
+- **Navegación móvil**: 4 pestañas (Inicio, Procesos, Comparar, Calendario); en Procesos hay selector Oposiciones · Bolsas · Histórico; Fuentes y salud y Ajustes están como iconos en la barra superior.
 - **Procesos**: fichas con calendario, datos oficiales (plazas, tasa, titulación, sueldo base), botón de inscripción y *mi situación* (sigo / inscrito / nota / notas).
 - **Comparar**: hasta 4 procesos en columnas; cada dato indica su fuente y fecha.
 - **Bolsas**: listas de empleo de Canarias y vigilancia de interinos de la AGE.

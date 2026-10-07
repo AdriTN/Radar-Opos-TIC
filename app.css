@@ -39,6 +39,12 @@ main{padding:16px 16px calc(var(--nav-h) + 28px + env(safe-area-inset-bottom));m
 .tabs a[aria-current="page"] .pill{background:var(--brand-soft)}
 .tabs .pill{display:flex;align-items:center;justify-content:center;width:54px;height:30px;border-radius:999px}
 .side{display:none}
+.ibtn{position:relative;color:var(--ink);text-decoration:none}
+.ibtn[aria-current]{background:var(--brand-soft);color:var(--brand)}
+.ibtn .punto{position:absolute;top:9px;right:9px;width:9px;height:9px;border-radius:50%;background:var(--bad,#dc2626);border:2px solid var(--bg)}
+.seg{display:flex;gap:4px;padding:4px;margin:0 0 14px;background:var(--surface2);border-radius:14px}
+.seg a{flex:1;text-align:center;text-decoration:none;color:var(--mute);font-weight:600;font-size:.9rem;padding:9px 6px;border-radius:10px;min-height:40px;display:flex;align-items:center;justify-content:center}
+.seg a[aria-current="page"]{background:var(--surface);color:var(--brand);box-shadow:0 1px 3px rgba(0,0,0,.12)}
 
 @media (min-width:960px){
   .tabs{display:none}
@@ -53,7 +59,7 @@ main{padding:16px 16px calc(var(--nav-h) + 28px + env(safe-area-inset-bottom));m
   #app{padding-left:var(--side-w)}
   .bar{padding-left:28px;padding-right:28px}
   main{padding:24px 28px 56px;max-width:1180px}
-  .bar .solo-movil{display:none}
+  .solo-movil{display:none!important}
 }
 
 /* ---------- componentes ---------- */
@@ -173,3 +179,4 @@ table.hist{min-width:640px}
   table.cmp thead th:first-child,table.cmp tbody th{min-width:88px;max-width:96px;font-size:.78rem;padding:8px}
   table.cmp th,table.cmp td{font-size:.84rem;padding:8px}
 }
+@media (max-width:959px){.bar{padding-left:8px;padding-right:8px;gap:2px}.bar h1{padding-left:8px;min-width:0}.bar .ibtn{min-width:40px}}

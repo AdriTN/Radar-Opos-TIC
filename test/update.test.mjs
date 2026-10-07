@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 import { sumarHabiles, esFestivo, pascua } from "../scripts/lib/festivos.mjs";
 import { extraerPlazo, extraerTasas, extraerPlazas, extraerNotaCorte, extraerEnlaces, extraerGrupo } from "../scripts/lib/texto.mjs";
 import { procesarDia, clasificar, calcularPlazo } from "../scripts/lib/boe.mjs";
-import { parsearIndice, filtrarBOC, fechaDeIndice } from "../scripts/lib/boc.mjs";
+import { parsearIndice, filtrarBOC, fechaDeIndice, esGenerica } from "../scripts/lib/boc.mjs";
 import { parsearSueldos, parsearComplementoDestino } from "../scripts/lib/retribuciones.mjs";
 import { generarICS } from "../scripts/lib/ics.mjs";
 
@@ -107,4 +107,10 @@ test("ICS válido con avisos", () => {
   assert.match(ics, /DTSTART;VALUE=DATE:20261029/); assert.match(ics, /DTEND;VALUE=DATE:20261030/);
   assert.match(ics, /SUMMARY:Fin del plazo\\, GSI\; prueba/); assert.equal((ics.match(/BEGIN:VALARM/g) || []).length, 2);
   assert.ok(ics.endsWith("END:VCALENDAR\r\n"));
+});
+
+test("BOC: una convocatoria de Función Pública que nombra otro cuerpo (Letrados, Inspección Médica) no se cuela", () => {
+  assert.equal(esGenerica("Resolución por la que se convocan pruebas selectivas ... en el Cuerpo Superior Facultativo, Escala de Letradas y Letrados"), false);
+  assert.equal(esGenerica("Resolución por la que se declara finalizado el procedimiento relativo a la convocatoria de las pruebas selectivas en el Cuerpo Superior Facultativo, Escala de Inspección Médica"), false);
+  assert.equal(esGenerica("Resolución por la que se convocan pruebas selectivas ... en determinados Cuerpos, Escalas y/o Especialidades."), true);
 });

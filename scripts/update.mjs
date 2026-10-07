@@ -12,7 +12,7 @@ import path from "node:path";
 import { ymd, limpiarMarcado } from "./lib/util.mjs";
 import { procesarDia, calcularPlazo, textoDeXmlBoe } from "./lib/boe.mjs";
 import { extraerDatos, extraerNotaCorte } from "./lib/texto.mjs";
-import { urlIndice, parsearIndice, filtrarBOC, fechaDeIndice } from "./lib/boc.mjs";
+import { urlIndice, parsearIndice, filtrarBOC, fechaDeIndice, esGenerica } from "./lib/boc.mjs";
 import { parsearSueldos, parsearComplementoDestino } from "./lib/retribuciones.mjs";
 import { generarICS, datosEvento } from "./lib/ics.mjs";
 import { ajustesDeFiestas, nacional, seccion } from "./lib/fiestas.mjs";
@@ -89,6 +89,7 @@ export async function ejecutar({ raiz = RAIZ, red = new Red(), pdf = pdfATexto, 
   const salud = new Salud(saludPrev, ahora.toISOString());
   const nuevos = [];
   let presupuestoDocs = cfg.maxDocumentosPorEjecucion;
+  auto.items = auto.items.filter((i) => !(i.fuente === "BOC" && i.revisarAnexo && !esGenerica(i.titulo))); // limpia genéricas que antes se colaron
   const conocidos = new Set(auto.items.map((i) => i.id));
 
   // ---------- 1) BOE ----------

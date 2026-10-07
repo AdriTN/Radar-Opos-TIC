@@ -21,7 +21,9 @@ export function parsearIndice(html) {
   return [...items.values()].filter((i) => i.titulo.length > 25); // descarta enlaces tipo "Descargar"
 }
 
-const GENERICA = /por la que se convocan?\b.*(pruebas selectivas|proceso selectivo|oposici)|convocatoria.*(pruebas selectivas|proceso selectivo)/i;
+const GENERICA = /por la que se convocan?\b.*(pruebas selectivas|proceso selectivo|oposici)/i;
+// Solo las convocatorias generales que no nombran un cuerpo o escala concreto (si lo nombran y no es TIC, no nos afecta).
+export const esGenerica = (titulo) => GENERICA.test(titulo) && !/\b(cuerpo|escala|subgrupo|especialidad)\b/i.test(titulo);
 
 export function filtrarBOC(items, fechaISO, cfg) {
   const out = [];
@@ -30,7 +32,7 @@ export function filtrarBOC(items, fechaISO, cfg) {
     const tic = esTIC(it.titulo, cfg.palabrasTIC);
     const funcionPublica = /funci[oó]n p[uú]blica/i.test(it.titulo.split(".-")[0] || "");
     // Las convocatorias generales de Función Pública no nombran la especialidad: se revisan por si el anexo incluye TI.
-    const generica = funcionPublica && GENERICA.test(it.titulo) && !tic;
+    const generica = funcionPublica && esGenerica(it.titulo) && !tic;
     if (/fiestas laborales|calendario (de fiestas|laboral)/i.test(it.titulo)) {
       out.push({ id: `BOC-A-${it.anio}-${String(it.num).padStart(3, "0")}-${it.disp}`, fuente: "BOC", fecha: fechaISO, tipo: "festivos", admin: "Canarias", ambito: "CAN", organismo: "BOC", titulo: it.titulo.replace(/\s+/g, " ").trim(), url: urlHtml(it.anio, it.num, it.disp), pdf: it.pdf });
       continue;

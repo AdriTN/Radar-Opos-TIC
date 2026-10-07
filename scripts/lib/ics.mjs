@@ -15,10 +15,12 @@ export function decorarEvento(etiqueta) {
   return { emoji: "📅", color: "7", cat: "Fecha" };
 }
 export function datosEvento(etiqueta, titulo, url, extra = "") {
-  const d = decorarEvento(etiqueta);
-  const corto = String(titulo).length > 90 ? String(titulo).slice(0, 89) + "…" : String(titulo);
-  return { resumen: `${d.emoji} ${etiqueta} · ${corto}`, categoria: d.cat, color: d.color,
-    descripcion: `${d.emoji} ${etiqueta}\n\n${titulo}${extra ? "\n\n" + extra : ""}${url ? "\n\nMás información: " + url : ""}\n\nAñadido por Radar Opos TIC` };
+  const d = decorarEvento(etiqueta), t = String(titulo);
+  const corto = t.length > 45 ? t.slice(0, 44) + "…" : t;
+  const largo = t.length > 110 ? t.slice(0, 109) + "…" : t;
+  const linea = String(extra).split("\n").filter(Boolean).slice(0, 2).join(" · ");
+  return { resumen: corto ? `${d.emoji} ${etiqueta} · ${corto}` : `${d.emoji} ${etiqueta}`, categoria: d.cat, color: d.color,
+    descripcion: [largo, linea, url].filter(Boolean).join("\n") };
 }
 
 export function generarICS(eventos, ahoraISO) {

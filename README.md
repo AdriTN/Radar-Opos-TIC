@@ -10,7 +10,7 @@ App web instalable (móvil y PC) con convocatorias, plazos, bolsas de empleo, co
 - **Comparar**: hasta 4 procesos en columnas; cada dato indica su fuente y fecha.
 - **Bolsas**: listas de empleo de Canarias y vigilancia de interinos de la AGE.
 - **Histórico**: convocatorias anteriores con plazas, tasas, notas de corte y resultados.
-- **Calendario**: enlace de suscripción (.ics) y botón para añadir fechas directamente a tu calendario (Google Calendar con tu permiso, o .ics para Apple/Outlook), con emoji y color por tipo y avisos 7 días y 1 día antes.
+- **Calendario**: enlace de suscripción (.ics) y botones para añadir las fechas al calendario del móvil (Android o iPhone, con tu confirmación) o directo a Google Calendar si lo configuras, con emoji y color por tipo y avisos 7 días y 1 día antes.
 - **Fuentes y salud**: qué lecturas funcionan y cuáles fallan.
 
 ## Cómo se actualiza

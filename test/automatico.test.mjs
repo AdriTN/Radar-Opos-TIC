@@ -29,7 +29,7 @@ test("decoración de eventos de calendario", () => {
   assert.equal(decorarEvento("Fin del plazo de solicitudes").color, "11");
   assert.equal(decorarEvento("Primer ejercicio").emoji, "📝");
   const e = datosEvento("Segundo ejercicio", "Cuerpo GSI", "https://x.es");
-  assert.match(e.resumen, /^📝 Segundo ejercicio · Cuerpo GSI/); assert.match(e.descripcion, /Más información: https:\/\/x.es/);
+  assert.match(e.resumen, /^📝 Segundo ejercicio · Cuerpo GSI/); assert.match(e.descripcion, /https:\/\/x.es/);
 });
 
 const sumario = { data: { sumario: { diario: { seccion: [{ codigo: "3", departamento: [{ nombre: "MINISTERIO DE TRABAJO Y ECONOMÍA SOCIAL", item: { identificador: "BOE-A-2026-80001", titulo: "Resolución de 14 de octubre de 2026, por la que se publica la relación de fiestas laborales para el año 2027." } }] }] } } } };

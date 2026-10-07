@@ -172,15 +172,24 @@ function hitos(procesos, soloSigo) {
 /* ============ calendario: añadir directamente (con tu consentimiento en cada acción) ============ */
 const eventoDe = (p, f) => {
   const url = p.datos?.inscripcionUrl || p.enlaces?.[0]?.url;
-  const extra = [p.datos?.plazas && `Plazas: ${p.datos.plazas}`, p.datos?.tasas?.length && `Tasa: ${p.datos.tasas.map(eur).join(" / ")}`, `${p.admin} · grupo ${p.grupo}`].filter(Boolean).join("\n");
-  return { uid: `${p.id}-${f.fecha}-${f.etiqueta}`.replace(/\W+/g, "-"), fecha: f.fecha, url, ...datosEvento(f.etiqueta, p.titulo, url, extra) };
+  const extra = [`${p.admin} · grupo ${p.grupo}`, p.datos?.plazas && `${p.datos.plazas}`].filter(Boolean).join("\n");
+  return { uid: `${p.id}-${f.fecha}-${f.etiqueta}`.replace(/\W+/g, "-"), fecha: f.fecha, url, ...datosEvento(f.etiqueta, corto(p, 60), url, extra) };
 };
 const eventosFuturos = (p) => (p.fechas || []).filter((f) => f.fecha && dif(f.fecha) >= 0).map((f) => eventoDe(p, f));
 const diaSig = (f) => { const d = new Date(f + "T12:00:00Z"); d.setUTCDate(d.getUTCDate() + 1); return d.toISOString().slice(0, 10); };
 const plantillaGoogle = (e) => `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(e.resumen)}&dates=${e.fecha.replaceAll("-", "")}/${diaSig(e.fecha).replaceAll("-", "")}&details=${encodeURIComponent(e.descripcion)}${e.url ? `&location=${encodeURIComponent(e.url)}` : ""}`;
-function descargarICS(evs, nombre) {
-  const b = new Blob([generarICS(evs, new Date().toISOString())], { type: "text/calendar" });
-  const a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = nombre; a.click();
+// Al móvil (Android o iOS): se entrega un .ics por la hoja de compartir del sistema y el propio calendario del teléfono pide confirmar y añade todo.
+async function enviarAlCalendario(evs) {
+  const txt = generarICS(evs, new Date().toISOString()), nombre = "radar-opos-tic.ics";
+  if (matchMedia("(pointer:coarse)").matches && navigator.canShare && navigator.share) {
+    const f = new File([txt], nombre, { type: "text/calendar" });
+    if (navigator.canShare({ files: [f] })) {
+      try { await navigator.share({ files: [f], title: "Fechas de Radar Opos TIC" }); aviso("Elige tu app de Calendario para añadirlas"); return; }
+      catch (e) { if (e.name === "AbortError") return; }
+    }
+  }
+  const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([txt], { type: "text/calendar" })); a.download = nombre; a.click();
+  aviso("Abre el archivo descargado para añadirlo a tu calendario");
 }
 let gTok = null, gExp = 0, gCli = null;
 const gId = () => lsGet("g_client", "");
@@ -212,10 +221,7 @@ async function gInsertar(evs) {
 }
 async function anadirACalendario(evs) {
   if (!evs.length) return aviso("No hay fechas futuras que añadir");
-  if (!gId()) { // sin configuración: se abre el evento ya rellenado en Google Calendar (un toque para guardar)
-    if (evs.length === 1) { window.open(plantillaGoogle(evs[0]), "_blank", "noopener"); return; }
-    descargarICS(evs, "radar-opos-tic.ics"); return aviso("Descargado .ics. Para añadir directo a Google, configura el acceso en Ajustes");
-  }
+  if (!gId()) return enviarAlCalendario(evs); // calendario del móvil (Android o iOS)
   if (evs.length > 1 && !confirm(`Se añadirán ${evs.length} eventos a tu Google Calendar (con avisos 7 días y 1 día antes). ¿Continuar?`)) return;
   try { const r = await gInsertar(evs); aviso(`Calendario: ${r.nuevos} añadido(s)${r.repetidos ? `, ${r.repetidos} ya estaban` : ""}`); }
   catch (e) { aviso(`No se pudo añadir: ${e.message}. Probando con la plantilla…`); if (evs.length === 1) window.open(plantillaGoogle(evs[0]), "_blank", "noopener"); }
@@ -311,7 +317,7 @@ function vDetalle(p) {
     <label>Mi nota o puntuación<input data-sit="nota" inputmode="decimal" placeholder="Por ejemplo 26,79 / 50" value="${esc(mi.nota || "")}"></label>
     <label>Notas<textarea data-sit="texto" placeholder="Requisitos pendientes, tasas pagadas…">${esc(mi.texto || "")}</textarea></label>
     <div class="mute small">${Sit.conectada() ? "Se guarda en tu repositorio y se sincroniza entre PC y móvil." : "Solo se guarda en este dispositivo. Conecta GitHub en Ajustes para sincronizar."}</div></div>
-  <h2 class="sec">Calendario</h2><div class="card">${tl ? `<ul class="tl">${tl}</ul>` : '<div class="mute">Sin fechas publicadas.</div>'}${eventosFuturos(p).length ? `<div class="btns" style="margin-top:12px"><button class="btn s p" data-act="addcalTodo" data-pid="${esc(p.id)}">${ico("cal")} Añadir todas a mi calendario</button><button class="btn s" data-act="icsProceso" data-pid="${esc(p.id)}">Descargar .ics</button></div>` : ""}${plazoSrc ? `<div class="mute small" style="margin-top:8px">${esc(plazoSrc)}</div>` : ""}</div>
+  <h2 class="sec">Calendario</h2><div class="card">${tl ? `<ul class="tl">${tl}</ul>` : '<div class="mute">Sin fechas publicadas.</div>'}${eventosFuturos(p).length ? `<div class="btns" style="margin-top:12px"><button class="btn s p" data-act="addcalTodo" data-pid="${esc(p.id)}">${ico("cal")} Añadir todas a mi calendario</button></div>` : ""}${plazoSrc ? `<div class="mute small" style="margin-top:8px">${esc(plazoSrc)}</div>` : ""}</div>
   <h2 class="sec">Datos oficiales</h2>
   <div class="card"><dl class="kv">
     ${datoFila("Plazas", d.plazas ? esc(d.plazas) : "—", d.fuente)}
@@ -371,9 +377,9 @@ function vCalendario() {
   const web = base.replace(/^https?:/, "webcal:");
   const gr = {}; hs.forEach((h) => { const k = h.f.slice(0, 7); (gr[k] ||= []).push(h); });
   return `<div class="card"><div class="titulo" style="margin-top:0">Suscríbete desde tu calendario</div><p class="mute" style="margin:0 0 10px">Un solo enlace que se actualiza solo y trae las fechas de los procesos que sigues (o todas las vigentes si no sigues ninguno), con aviso 7 días y 1 día antes.</p>
-  <div class="btns"><a class="btn p" href="${esc(web)}">Suscribirme (Apple/Outlook)</a><a class="btn" target="_blank" rel="noopener noreferrer" href="https://calendar.google.com/calendar/r?cid=${encodeURIComponent(web)}">Google Calendar</a><a class="btn" href="${esc(base)}" download>Descargar .ics</a><button class="btn" data-act="copiar" data-v="${esc(base)}">Copiar enlace</button></div></div>
-  <div class="card"><div class="titulo" style="margin-top:0">Añadir directamente a tu calendario</div><p class="mute" style="margin:0 0 10px">Con tu permiso, se añaden ahora mismo las próximas fechas ${sigo ? "de los procesos que sigues" : "de todos los procesos vigentes"}, con color por tipo, aviso 7 días y 1 día antes y sin duplicar lo que ya esté. ${gId() ? "" : "Sin configurar Google, descarga un .ics que se abre en cualquier calendario."}</p>
-  <div class="btns"><button class="btn p" data-act="addcalSigo">${ico("cal")} ${gId() ? "Añadir a Google Calendar" : "Descargar .ics"}</button></div></div>
+  <div class="btns"><a class="btn p" href="${esc(web)}">Suscribirme (Apple/Outlook)</a><a class="btn" target="_blank" rel="noopener noreferrer" href="https://calendar.google.com/calendar/r?cid=${encodeURIComponent(web)}">Google Calendar</a><button class="btn" data-act="copiar" data-v="${esc(base)}">Copiar enlace</button></div></div>
+  <div class="card"><div class="titulo" style="margin-top:0">Añadir directamente a tu calendario</div><p class="mute" style="margin:0 0 10px">Con tu permiso, se añaden ahora mismo las próximas fechas ${sigo ? "de los procesos que sigues, o de todos los vigentes" : "de todos los procesos vigentes"}, con aviso 7 días y 1 día antes. En el móvil se abre tu app de Calendario (Android o iPhone) para que confirmes; si has configurado Google en Ajustes, se añade directo a Google Calendar y sin duplicar.</p>
+  <div class="btns">${sigo ? `<button class="btn p" data-act="addcalSigo">${ico("cal")} Añadir las que sigo</button>` : ""}<button class="btn ${sigo ? "" : "p"}" data-act="addcalTodas">${ico("cal")} Añadir todas</button></div></div>
   <h2 class="sec">Próximas fechas ${sigo ? `<label style="float:right;text-transform:none;letter-spacing:0;font-weight:600"><input type="checkbox" data-act="soloSigo" ${UI.soloSigo ? "checked" : ""}> solo las que sigo</label>` : ""}</h2>
   ${Object.keys(gr).length ? Object.entries(gr).map(([k, v]) => `<div class="card" style="margin-bottom:12px"><div class="titulo" style="margin-top:0">${esc(MESL[+k.slice(5) - 1])} ${esc(k.slice(0, 4))}</div>${v.map(hitoFila).join("")}</div>`).join("") : '<div class="empty">No hay fechas futuras.</div>'}`;
 }
@@ -445,14 +451,14 @@ document.addEventListener("click", (e) => {
     else if (act === "copiar") { navigator.clipboard?.writeText(v).then(() => aviso("Enlace copiado"), () => aviso("No se pudo copiar")); return; }
     else if (act === "probar") { Sit.iniciar().then(() => { if (Sit.conectada()) return Sit.push(); }).then(() => { aviso(Sit.estado === "ok" ? "Sincronizado con GitHub" : "No se pudo sincronizar: " + (Sit.error || "")); render(); }); return; }
     else if (act === "desconectar") { ["gh_token", "gh_repo"].forEach((k) => lsSet(k, "")); Sit.estado = "local"; Sit.sha = null; aviso("Desconectado"); }
-    else if (act === "addcal" || act === "addcalTodo" || act === "icsProceso") {
+    else if (act === "addcal" || act === "addcalTodo") {
       const pr = P.find((x) => x.id === a.dataset.pid); if (!pr) return;
       if (act === "addcal") anadirACalendario([eventoDe(pr, { fecha: a.dataset.f, etiqueta: a.dataset.e })]);
-      else if (act === "icsProceso") { descargarICS(eventosFuturos(pr), `${pr.id}.ics`); }
       else anadirACalendario(eventosFuturos(pr));
       return;
     }
-    else if (act === "addcalSigo") { const seg = P.filter((x) => Sit.get(x.id).sigo); anadirACalendario((seg.length ? seg : P.filter((x) => x._e !== "cerrado")).flatMap(eventosFuturos)); return; }
+    else if (act === "addcalTodas") { anadirACalendario(P.filter((x) => x._e !== "cerrado").flatMap(eventosFuturos)); return; }
+    else if (act === "addcalSigo") { const seg = P.filter((x) => Sit.get(x.id).sigo); anadirACalendario(seg.flatMap(eventosFuturos)); return; }
     else if (act === "exportar") { const b = new Blob([JSON.stringify(Sit.data, null, 1)], { type: "application/json" }); const l = document.createElement("a"); l.href = URL.createObjectURL(b); l.download = "mi-situacion.json"; l.click(); return; }
     render(); return;
   }

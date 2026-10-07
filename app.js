@@ -181,6 +181,11 @@ const plantillaGoogle = (e) => `https://calendar.google.com/calendar/render?acti
 // Al móvil (Android o iOS): se entrega un .ics por la hoja de compartir del sistema y el propio calendario del teléfono pide confirmar y añade todo.
 async function enviarAlCalendario(evs) {
   const txt = generarICS(evs, new Date().toISOString()), nombre = "radar-opos-tic.ics";
+  const ios = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  if (ios) { // iPhone/iPad: Safari reconoce el .ics abierto como tal y ofrece "Añadir todo" al Calendario
+    const u = URL.createObjectURL(new Blob([txt], { type: "text/calendar" })); const w = window.open(u, "_blank"); if (!w) location.href = u;
+    return aviso("Pulsa «Añadir todo» en la ventana de Calendario");
+  }
   if (matchMedia("(pointer:coarse)").matches && navigator.canShare && navigator.share) {
     const f = new File([txt], nombre, { type: "text/calendar" });
     if (navigator.canShare({ files: [f] })) {

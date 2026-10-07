@@ -1,0 +1,35 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Radar-Opos-TIC//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Radar oposiciones TIC
+X-WR-TIMEZONE:Atlantic/Canary
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+BEGIN:VEVENT
+UID:BOC-A-2026-201-3462-2026-11-05-Fin-del-plazo-estimado-@radar-opos-tic
+DTSTAMP:20261007T145944Z
+DTSTART;VALUE=DATE:20261105
+DTEND;VALUE=DATE:20261106
+SUMMARY:⏰ Fin del plazo (estimado) · Dirección General de la Función Públ
+ ica.- Re…
+DESCRIPTION:Dirección General de la Función Pública.- Resolución de 24 de
+  septiembre de 2026\, por la que se declara final…\nhttps://www.gobiernod
+ ecanarias.org/boc/2026/201/3462.html
+URL:https://www.gobiernodecanarias.org/boc/2026/201/3462.html
+CATEGORIES:Plazo
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Fin del plazo (estimado) · Dirección General de la Función 
+ Pública.- Re…
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Fin del plazo (estimado) · Dirección General de la Función 
+ Pública.- Re…
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

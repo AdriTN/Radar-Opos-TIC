@@ -7,38 +7,6 @@ X-WR-CALNAME:Radar oposiciones TIC
 X-WR-TIMEZONE:Atlantic/Canary
 REFRESH-INTERVAL;VALUE=DURATION:PT12H
 BEGIN:VEVENT
-UID:age-gsi-2025-2026-09-29-Lista-de-aprobados-del-primer-ejercicio@radar
- -opos-tic
-DTSTAMP:20261007T145944Z
-DTSTART;VALUE=DATE:20260929
-DTEND;VALUE=DATE:20260930
-SUMMARY:📝 Lista de aprobados del primer ejercicio · Cuerpo de Gestión de
-  Sistemas e Informática …
-DESCRIPTION:Cuerpo de Gestión de Sistemas e Informática (GSI) · Convocato
- ria 2025\nhttps://sede.inap.gob.es/es/procedimientos-y-servicios/seleccio
- n/procesos-selectivos-de-cuerpos-y-escalas-generales/cuerpo-de-gestion-de
- -sistemas-e-informatica-de-la-administracion-del-estado-ingreso-libre-con
- vocatoria-2025
-URL:https://sede.inap.gob.es/es/procedimientos-y-servicios/seleccion/proc
- esos-selectivos-de-cuerpos-y-escalas-generales/cuerpo-de-gestion-de-siste
- mas-e-informatica-de-la-administracion-del-estado-ingreso-libre-convocato
- ria-2025
-CATEGORIES:Examen
-TRANSP:TRANSPARENT
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:📝 Lista de aprobados del primer ejercicio · Cuerpo de Gestió
- n de Sistemas e Informática …
-TRIGGER:-P6DT15H
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:📝 Lista de aprobados del primer ejercicio · Cuerpo de Gestió
- n de Sistemas e Informática …
-TRIGGER:-PT15H
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
 UID:BOC-A-2026-189-3288-2026-10-20-Fin-del-plazo@radar-opos-tic
 DTSTAMP:20261007T145944Z
 DTSTART;VALUE=DATE:20261020

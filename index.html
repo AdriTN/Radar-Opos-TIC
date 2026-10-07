@@ -3,229 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Radar Oposiciones TIC</title>
-<meta name="description" content="Convocatorias, plazos y fechas de oposiciones de informática (AGE, Canarias, Gran Canaria), actualizado a diario.">
+<title>Radar Opos TIC</title>
+<meta name="description" content="Convocatorias, plazos, bolsas y retribuciones de oposiciones de informática (AGE, Canarias, Gran Canaria), actualizado a diario.">
 <meta name="theme-color" content="#0f766e">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon-180.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Radar TIC">
-<style>
-:root{
-  --bg:#f6f7f5;--card:#fff;--ink:#17201e;--mute:#5b6764;--line:#e2e6e3;--brand:#0f766e;--brand-ink:#fff;
-  --ok:#15803d;--ok-bg:#dcfce7;--warn:#b45309;--warn-bg:#fef3c7;--info:#1d4ed8;--info-bg:#dbeafe;--off:#57606a;--off-bg:#eceff1;--bad:#b91c1c;--bad-bg:#fee2e2;
-}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0e1413;--card:#161e1c;--ink:#e8eeec;--mute:#9aa8a4;--line:#26332f;--brand:#2dd4bf;--brand-ink:#04211d;
-  --ok:#4ade80;--ok-bg:#12301c;--warn:#fbbf24;--warn-bg:#3a2a0a;--info:#93c5fd;--info-bg:#14263f;--off:#a1acb3;--off-bg:#222b2a;--bad:#fca5a5;--bad-bg:#3b1515;}}
-:root[data-theme="dark"]{
-  --bg:#0e1413;--card:#161e1c;--ink:#e8eeec;--mute:#9aa8a4;--line:#26332f;--brand:#2dd4bf;--brand-ink:#04211d;
-  --ok:#4ade80;--ok-bg:#12301c;--warn:#fbbf24;--warn-bg:#3a2a0a;--info:#93c5fd;--info-bg:#14263f;--off:#a1acb3;--off-bg:#222b2a;--bad:#fca5a5;--bad-bg:#3b1515;}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding-bottom:env(safe-area-inset-bottom)}
-a{color:inherit}
-.wrap{max-width:880px;margin:0 auto;padding:0 16px 48px}
-header{padding:20px 0 8px;display:flex;gap:12px;align-items:flex-start;justify-content:space-between}
-h1{font-size:1.5rem;line-height:1.2;margin:0}
-.sub{color:var(--mute);font-size:.88rem;margin:4px 0 0}
-.theme{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;min-width:44px;min-height:44px;font-size:1.1rem;cursor:pointer}
-h2{font-size:1.05rem;margin:28px 0 10px;letter-spacing:.01em}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 0}
-.chip{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:0 14px;min-height:44px;font:inherit;font-size:.92rem;cursor:pointer}
-.chip[aria-pressed="true"]{background:var(--brand);color:var(--brand-ink);border-color:var(--brand);font-weight:600}
-.banner{background:var(--warn-bg);color:var(--warn);border-radius:12px;padding:10px 14px;font-size:.9rem;margin-top:14px}
-.hitos{display:grid;gap:8px;padding:0;margin:0;list-style:none}
-.hito{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px;display:flex;gap:12px;align-items:center}
-.hito .dias{min-width:64px;text-align:center;font-weight:700;color:var(--brand);line-height:1.1}
-.hito .dias small{display:block;font-weight:500;color:var(--mute);font-size:.72rem}
-.hito .t{flex:1;min-width:0}
-.hito .t b{display:block;font-weight:600}
-.hito .t span{color:var(--mute);font-size:.86rem}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin:0 0 14px}
-.card h3{margin:8px 0 6px;font-size:1.08rem;line-height:1.3}
-.badges{display:flex;flex-wrap:wrap;gap:6px}
-.b{font-size:.76rem;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--off-bg);color:var(--off)}
-.b.abierto{background:var(--ok-bg);color:var(--ok)}
-.b.proximo{background:var(--info-bg);color:var(--info)}
-.b.en_curso{background:var(--warn-bg);color:var(--warn)}
-.b.cerrado{background:var(--off-bg);color:var(--off)}
-.resumen{margin:6px 0 10px}
-.plazas{font-size:.9rem;color:var(--mute);margin:0 0 8px}
-ul.fechas{list-style:none;margin:0 0 12px;padding:0;border-left:2px solid var(--line)}
-ul.fechas li{padding:2px 0 2px 12px;display:flex;gap:10px;font-size:.92rem}
-ul.fechas .f{min-width:92px;color:var(--mute);font-variant-numeric:tabular-nums}
-ul.fechas li.pasado{opacity:.55}
-ul.fechas li.sig .f{color:var(--brand);font-weight:700}
-.nota{font-size:.86rem;color:var(--mute);margin:0 0 12px}
-.btns{display:flex;flex-wrap:wrap;gap:8px}
-.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border-radius:12px;border:1px solid var(--line);background:var(--card);text-decoration:none;font-weight:600;font-size:.92rem}
-.btn.p{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
-.auto{display:grid;gap:8px;padding:0;margin:0;list-style:none}
-.auto li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
-.auto a{font-weight:600;text-decoration:none}
-.auto .m{color:var(--mute);font-size:.82rem;margin-top:2px}
-.vacio{color:var(--mute);background:var(--card);border:1px dashed var(--line);border-radius:12px;padding:14px;font-size:.92rem}
-.fuentes{columns:1;padding:0;margin:0;list-style:none}
-@media(min-width:640px){.fuentes{columns:2;column-gap:16px}}
-.fuentes li{break-inside:avoid;margin:0 0 8px}
-.fuentes a{display:block;min-height:44px;padding:9px 12px;border:1px solid var(--line);background:var(--card);border-radius:12px;text-decoration:none;font-size:.9rem}
-.fuentes small{display:block;color:var(--mute)}
-.chg{color:var(--warn);font-weight:700}
-footer{color:var(--mute);font-size:.8rem;margin-top:28px}
-:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
-</style>
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="stylesheet" href="app.css">
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div>
-      <h1>Radar de oposiciones TIC</h1>
-      <p class="sub" id="actualizado">Cargando…</p>
-    </div>
-    <button class="theme" id="tema" aria-label="Cambiar tema claro/oscuro">◐</button>
+<div id="app">
+  <nav class="side" id="side" aria-label="Navegación principal"></nav>
+  <header class="bar">
+    <button class="ibtn solo-movil" id="atras" aria-label="Volver" hidden></button>
+    <h1 id="titulo">Radar Opos TIC</h1>
+    <span class="sync" id="sync" role="status"></span>
+    <button class="ibtn" id="refrescar" aria-label="Actualizar datos"></button>
   </header>
-
-  <div id="aviso"></div>
-
-  <div class="chips" role="group" aria-label="Filtrar por estado" id="fEstado"></div>
-  <div class="chips" role="group" aria-label="Filtrar por administración" id="fAdmin"></div>
-
-  <h2>Próximas fechas</h2>
-  <ul class="hitos" id="hitos"></ul>
-
-  <h2>Procesos que sigo</h2>
-  <div id="procesos"></div>
-
-  <h2>Detectado en el BOE <span style="font-weight:400;color:var(--mute);font-size:.85rem">(automático, últimos días)</span></h2>
-  <ul class="auto" id="auto"></ul>
-
-  <h2>Páginas oficiales vigiladas</h2>
-  <ul class="auto" id="watch"></ul>
-
-  <h2>Fuentes oficiales</h2>
-  <ul class="fuentes" id="fuentes"></ul>
-
-  <footer>Información orientativa. Antes de inscribirte, confirma siempre plazos y requisitos en las bases oficiales. Los plazos “aprox.” se calculan con 20 días hábiles sin descontar festivos.</footer>
+  <main id="vista" tabindex="-1"></main>
+  <nav class="tabs" id="tabs" aria-label="Navegación principal"></nav>
 </div>
-
-<script>
-(function(){
-  "use strict";
-  var ESTADOS={abierto:"Plazo abierto",proximo:"Próximamente",en_curso:"En curso",cerrado:"Cerrado"};
-  var ORDEN={abierto:0,proximo:1,en_curso:2,cerrado:3};
-  var estado="todos",admin="todas",D={seed:null,auto:null,watch:null};
-
-  function $(id){return document.getElementById(id)}
-  function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
-  function safeUrl(u){return /^https:\/\//i.test(u)?u:"#"}
-  function hoy(){var d=new Date();return new Date(d.getFullYear(),d.getMonth(),d.getDate())}
-  function parse(iso){var p=iso.split("-");return new Date(+p[0],+p[1]-1,+p[2])}
-  function dif(iso){return Math.round((parse(iso)-hoy())/86400000)}
-  var MES=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
-  function fmt(iso){var d=parse(iso);return d.getDate()+" "+MES[d.getMonth()]+" "+d.getFullYear()}
-  function rel(n){if(n===0)return"hoy";if(n===1)return"mañana";if(n===-1)return"ayer";return n>0?"en "+n+" días":"hace "+(-n)+" días"}
-
-  // Estado calculado: si hay fechas de inscripción, manda lo que diga el calendario.
-  function estadoDe(p){
-    var ini=null,fin=null;
-    (p.fechas||[]).forEach(function(f){
-      if(!f.fecha)return;
-      if(/abre la inscripci/i.test(f.etiqueta))ini=f.fecha;
-      if(/cierra la inscripci/i.test(f.etiqueta))fin=f.fecha;
-    });
-    if(ini&&fin){
-      if(dif(ini)>0)return"proximo";
-      if(dif(fin)>=0)return"abierto";
-    }
-    return p.estado==="abierto"&&fin&&dif(fin)<0?"en_curso":p.estado;
-  }
-
-  function cargar(url){
-    return fetch(url,{cache:"no-cache"}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json()}).catch(function(){return null});
-  }
-
-  function chips(el,opts,get,set){
-    el.innerHTML=opts.map(function(o){return'<button class="chip" aria-pressed="'+(get()===o[0])+'" data-v="'+esc(o[0])+'">'+esc(o[1])+'</button>'}).join("");
-    Array.prototype.forEach.call(el.querySelectorAll("button"),function(b){b.onclick=function(){set(b.getAttribute("data-v"));render()}});
-  }
-
-  function render(){
-    var ps=(D.seed&&D.seed.procesos||[]).map(function(p){return Object.assign({},p,{_e:estadoDe(p)})});
-    chips($("fEstado"),[["todos","Todos"],["abierto","Plazo abierto"],["proximo","Próximamente"],["en_curso","En curso"],["cerrado","Cerrados"]],function(){return estado},function(v){estado=v});
-    var admins=["todas"].concat(Array.from(new Set(ps.map(function(p){return p.admin}))));
-    chips($("fAdmin"),admins.map(function(a){return[a,a==="todas"?"Todas las administraciones":a]}),function(){return admin},function(v){admin=v});
-
-    var vis=ps.filter(function(p){return(estado==="todos"||p._e===estado)&&(admin==="todas"||p.admin===admin)})
-      .sort(function(a,b){return ORDEN[a._e]-ORDEN[b._e]});
-
-    // Hitos futuros
-    var hs=[];
-    vis.forEach(function(p){(p.fechas||[]).forEach(function(f){if(f.fecha&&dif(f.fecha)>=0)hs.push({f:f.fecha,e:f.etiqueta,p:p})})});
-    // Plazos estimados de convocatorias detectadas
-    ((D.auto&&D.auto.items)||[]).forEach(function(i){if(i.plazoEstimado&&dif(i.plazoEstimado)>=0)hs.push({f:i.plazoEstimado,e:"Fin de plazo (aprox.)",p:{titulo:i.titulo}})});
-    hs.sort(function(a,b){return a.f<b.f?-1:1});
-    $("hitos").innerHTML=hs.length?hs.slice(0,6).map(function(h){var n=dif(h.f);
-      return'<li class="hito"><div class="dias">'+(n===0?"Hoy":n)+'<small>'+(n===0?"":(n===1?"día":"días"))+'</small></div><div class="t"><b>'+esc(h.e)+'</b><span>'+esc(fmt(h.f))+' · '+esc(h.p.titulo)+'</span></div></li>'}).join("")
-      :'<li class="vacio">No hay fechas futuras confirmadas para este filtro. Cuando el BOE publique una convocatoria, aparecerá aquí.</li>';
-
-    // Procesos
-    $("procesos").innerHTML=vis.length?vis.map(function(p){
-      var sig=null;(p.fechas||[]).forEach(function(f){if(!sig&&f.fecha&&dif(f.fecha)>=0)sig=f.fecha});
-      var fechas=(p.fechas||[]).map(function(f){
-        var pas=f.fecha&&dif(f.fecha)<0,es=f.fecha&&f.fecha===sig;
-        return'<li class="'+(pas?"pasado ":"")+(es?"sig":"")+'"><span class="f">'+esc(f.fecha?fmt(f.fecha):"—")+'</span><span>'+esc(f.etiqueta)+(f.fecha?"":" · "+esc(f.texto||""))+(es?" ("+esc(rel(dif(f.fecha)))+")":"")+'</span></li>'}).join("");
-      var enl=(p.enlaces||[]).map(function(l,i){return'<a class="btn'+(i===0?" p":"")+'" href="'+esc(safeUrl(l.url))+'" target="_blank" rel="noopener noreferrer">'+esc(l.texto)+' ↗</a>'}).join("");
-      return'<article class="card"><div class="badges"><span class="b '+p._e+'">'+esc(ESTADOS[p._e]||p._e)+'</span><span class="b">'+esc(p.admin)+'</span><span class="b">Grupo '+esc(p.grupo)+'</span><span class="b">'+esc(p.acceso)+'</span></div>'
-        +'<h3>'+esc(p.titulo)+'</h3><p class="resumen">'+esc(p.resumen)+'</p>'
-        +(p.plazas?'<p class="plazas">Plazas: <b>'+esc(p.plazas)+'</b></p>':"")
-        +'<ul class="fechas">'+fechas+'</ul>'+(p.nota?'<p class="nota">'+esc(p.nota)+'</p>':"")
-        +'<div class="btns">'+enl+'</div></article>'}).join("")
-      :'<div class="vacio">Ningún proceso con este filtro.</div>';
-
-    // Automático
-    var items=((D.auto&&D.auto.items)||[]).filter(function(i){return admin==="todas"||(admin==="AGE"&&i.admin==="AGE")||(admin==="Canarias"&&/Canarias/.test(i.admin))}).slice(0,15);
-    var TIPO={convocatoria:"Convocatoria",oep:"Oferta de empleo",listas:"Listas",tramite:"Trámite",correccion:"Corrección",otros:"Otro"};
-    $("auto").innerHTML=items.length?items.map(function(i){
-      return'<li><a href="'+esc(safeUrl(i.url))+'" target="_blank" rel="noopener noreferrer">'+esc(i.titulo)+' ↗</a><div class="m">'+esc(TIPO[i.tipo]||i.tipo)+' · '+esc(i.admin)+' · publicado '+esc(fmt(i.fecha))+(i.plazoEstimado?' · plazo aprox. hasta <b>'+esc(fmt(i.plazoEstimado))+'</b> (confirmar en bases)':"")+'</div></li>'}).join("")
-      :'<li class="vacio">Sin novedades TIC en el BOE en los últimos días. El radar lo revisa cada mañana.</li>';
-
-    // Páginas vigiladas
-    var pg=D.watch&&D.watch.paginas?Object.keys(D.watch.paginas).map(function(k){return D.watch.paginas[k]}):[];
-    $("watch").innerHTML=pg.length?pg.map(function(p){
-      var cam=p.cambio&&dif(p.cambio.slice(0,10))>-15;
-      return'<li><a href="'+esc(safeUrl(p.url))+'" target="_blank" rel="noopener noreferrer">'+esc(p.nombre)+' ↗</a><div class="m">'+(cam?'<span class="chg">Ha cambiado '+esc(rel(dif(p.cambio.slice(0,10))))+'</span> · ':"")+(p.error?"No se pudo revisar la última vez · ":"")+'revisada '+esc(p.revisada?fmt(p.revisada.slice(0,10)):"—")+'</div></li>'}).join("")
-      :'<li class="vacio">Aún no se ha ejecutado ninguna revisión automática.</li>';
-
-    // Fuentes
-    $("fuentes").innerHTML=((D.seed&&D.seed.fuentes)||[]).map(function(f){return'<li><a href="'+esc(safeUrl(f.url))+'" target="_blank" rel="noopener noreferrer">'+esc(f.texto)+'<small>'+esc(f.grupo)+(f.ayuda?" · "+esc(f.ayuda):"")+'</small></a></li>'}).join("");
-
-    // Cabecera y avisos
-    var gen=D.auto&&D.auto.generado?D.auto.generado.slice(0,10):null;
-    $("actualizado").textContent=gen?"Revisión automática: "+fmt(gen)+" · datos verificados a mano: "+fmt(D.seed.verificado):"Datos verificados a mano: "+(D.seed?fmt(D.seed.verificado):"—");
-    var av="";
-    if(gen&&dif(gen)<-3)av='<div class="banner">La revisión automática lleva '+(-dif(gen))+' días sin ejecutarse. Comprueba la pestaña Actions del repositorio.</div>';
-    if(D.auto&&D.auto.errores&&D.auto.errores.length)av+='<div class="banner">Hubo '+D.auto.errores.length+' fallos al consultar alguna fuente en la última revisión; los datos pueden estar incompletos.</div>';
-    $("aviso").innerHTML=av;
-  }
-
-  // Tema
-  var tema=null;try{tema=localStorage.getItem("tema")}catch(e){}
-  if(tema)document.documentElement.setAttribute("data-theme",tema);
-  $("tema").onclick=function(){
-    var oscuro=document.documentElement.getAttribute("data-theme")==="dark"||(!document.documentElement.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme: dark)").matches);
-    var n=oscuro?"light":"dark";document.documentElement.setAttribute("data-theme",n);try{localStorage.setItem("tema",n)}catch(e){}
-  };
-
-  Promise.all([cargar("data/seed.json"),cargar("data/auto.json"),cargar("data/watch.json")]).then(function(r){
-    D.seed=r[0]||{procesos:[],fuentes:[],verificado:"2000-01-01"};D.auto=r[1];D.watch=r[2];
-    if(!r[0])$("aviso").innerHTML='<div class="banner">No se pudieron cargar los datos. Comprueba tu conexión.</div>';
-    render();
-  });
-
-  if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(function(){});
-})();
-</script>
+<div class="sheet-wrap" id="sheetWrap" role="dialog" aria-modal="true" aria-label="Detalle">
+  <div class="scrim" id="scrim"></div>
+  <div class="sheet" id="sheet"></div>
+</div>
+<div class="toast" id="toast" role="status" hidden></div>
+<noscript>Esta aplicación necesita JavaScript.</noscript>
+<script type="module" src="app.js"></script>
 </body>
 </html>

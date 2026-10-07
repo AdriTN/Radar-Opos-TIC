@@ -1,0 +1,58 @@
+{
+  "nota": "Datos verificados en fuentes oficiales. Las filas nuevas se añaden solas a historico.json cuando el radar detecta convocatorias y resultados con notas de corte publicadas.",
+  "convocatorias": [
+    {
+      "id": "gsi-2024",
+      "admin": "AGE",
+      "titulo": "Cuerpo de Gestión de Sistemas e Informática (A2) · convocatoria de 9 de julio de 2024",
+      "fecha": "2024-07-09",
+      "plazas": null,
+      "tasas": [],
+      "notaCorte": null,
+      "resultado": "Oposición resuelta el 11/06/2025; unas 250 personas en el anexo del nombramiento como funcionarios de carrera.",
+      "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-11953",
+      "fuente": "BOE-A-2026-11953"
+    },
+    {
+      "id": "cssti-2025",
+      "admin": "AGE",
+      "titulo": "Cuerpo Superior de Sistemas y TI (A1) · convocatoria 2025",
+      "fecha": "2025-12-18",
+      "plazas": "290 libre + 100 promoción interna",
+      "tasas": [
+        31.1,
+        15.55
+      ],
+      "notaCorte": null,
+      "resultado": null,
+      "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-25938",
+      "fuente": "BOE-A-2025-25938"
+    },
+    {
+      "id": "gsi-2025",
+      "admin": "AGE",
+      "titulo": "Cuerpo de Gestión de Sistemas e Informática (A2) · convocatoria 2025",
+      "fecha": "2025-12-23",
+      "plazas": null,
+      "tasas": [],
+      "notaCorte": null,
+      "resultado": "Lista de aprobados del primer ejercicio publicada el 29/09/2026.",
+      "url": "https://sede.inap.gob.es/es/procedimientos-y-servicios/seleccion/procesos-selectivos-de-cuerpos-y-escalas-generales/cuerpo-de-gestion-de-sistemas-e-informatica-de-la-administracion-del-estado-ingreso-libre-convocatoria-2025",
+      "fuente": "Ficha INAP"
+    },
+    {
+      "id": "can-a2-ti-2026",
+      "admin": "Canarias",
+      "titulo": "Técnicos Facultativos de Grado Medio, Tecnologías de la Información (A2) · 2026",
+      "fecha": "2026-03-24",
+      "plazas": "6 (turno libre)",
+      "tasas": [
+        15.0
+      ],
+      "notaCorte": null,
+      "resultado": "Primer ejercicio en julio de 2026, resultados en agosto.",
+      "url": "https://www.gobiernodecanarias.org/administracionespublicas/funcionpublica/acceso/convocatorias-en-curso/2026/Acceso_libre/ficha/TECNOLOGIAS-DE-LA-INFORMACION-Turno-Libre-00002/",
+      "fuente": "Ficha de Función Pública y BOC 2026/057/948"
+    }
+  ]
+}

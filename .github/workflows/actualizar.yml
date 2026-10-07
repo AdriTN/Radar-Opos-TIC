@@ -2,11 +2,20 @@ name: Actualizar radar y publicar
 
 on:
   schedule:
-    - cron: "17 5 * * *"   # cada día ~06:17 hora de Canarias (05:17 UTC en invierno, 06:17 en verano)
+    - cron: "17 5 * * *"   # cada día ~06:17 en Canarias (05:17 UTC en invierno)
   workflow_dispatch:        # botón "Run workflow" para lanzarlo a mano
   push:
-    branches: [main]
-    paths-ignore: ["data/auto.json", "data/watch.json", "data/nuevos.md"]
+    branches: [master]
+    paths-ignore:
+      - "data/auto.json"
+      - "data/watch.json"
+      - "data/salud.json"
+      - "data/retribuciones.json"
+      - "data/historico.json"
+      - "data/seed-datos.json"
+      - "data/festivos-oficiales.json"
+      - "data/calendario.ics"
+      - "data/nuevos.md"
 
 permissions:
   contents: write
@@ -31,21 +40,25 @@ jobs:
         with:
           node-version: 20
 
-      - name: Tests
-        run: node --test test/update.test.mjs
+      - name: Herramienta para leer PDF (tablas de retribuciones)
+        run: which pdftotext || (sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils)
 
-      - name: Escanear BOE y vigilar páginas
+      - name: Tests
+        run: node --test test/update.test.mjs test/ejecutar.test.mjs test/automatico.test.mjs
+
+      - name: Leer BOE, BOC, retribuciones y páginas oficiales
         run: node scripts/update.mjs
 
-      - name: Guardar cambios
+      - name: Guardar datos
         run: |
           git config user.name "radar-bot"
           git config user.email "radar-bot@users.noreply.github.com"
-          git add data/auto.json data/watch.json
+          git add data/auto.json data/watch.json data/salud.json data/retribuciones.json data/historico.json data/seed-datos.json data/festivos-oficiales.json data/calendario.ics
           git diff --cached --quiet || git commit -m "Datos actualizados $(date -u +%F)"
+          git pull --rebase --autostash || true
           git push || true
 
-      - name: Avisar si hay novedades (abre un Issue; GitHub te notifica al móvil)
+      - name: Avisar si hay novedades (abre un Issue; GitHub Mobile te lo notifica)
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
@@ -57,8 +70,10 @@ jobs:
 
       - name: Preparar sitio
         run: |
-          mkdir _site
-          cp -r index.html sw.js manifest.webmanifest icon.svg icon-*.png data _site/
+          mkdir -p _site/scripts
+          cp index.html app.js app.css sw.js manifest.webmanifest icon.svg icon-*.png _site/
+          cp -r scripts/lib _site/scripts/lib
+          cp -r data _site/data
           rm -f _site/data/nuevos.md
 
       - uses: actions/upload-pages-artifact@v3

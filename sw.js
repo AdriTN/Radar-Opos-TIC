@@ -1,5 +1,5 @@
 // Service worker: red primero (datos siempre frescos) y caché como respaldo sin conexión.
-const V = "radar-v7";
+const V = "radar-v8";
 const SHELL = ["./", "index.html", "app.css", "app.js", "manifest.webmanifest", "icon.svg", "scripts/lib/festivos.mjs", "scripts/lib/util.mjs", "scripts/lib/ics.mjs",
   "data/seed.json", "data/auto.json", "data/watch.json", "data/retribuciones.json", "data/historico.json", "data/historico-seed.json", "data/salud.json", "data/seed-datos.json", "data/mi-situacion.json", "data/festivos-oficiales.json", "data/festivos-extra.json"];
 self.addEventListener("install", (e) => { e.waitUntil(caches.open(V).then((c) => Promise.all(SHELL.map((u) => c.add(u).catch(() => null)))).then(() => self.skipWaiting())); });

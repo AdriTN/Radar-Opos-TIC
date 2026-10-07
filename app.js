@@ -183,8 +183,10 @@ async function enviarAlCalendario(evs, icsUrl) {
   const txt = generarICS(evs, new Date().toISOString()), nombre = "radar-opos-tic.ics";
   const ios = /iP(hone|ad|od)/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
   if (ios && icsUrl) { // iPhone/iPad: un enlace https real a un .ics hace que Safari ofrezca "Añadir todo" al Calendario
-    aviso("Pulsa «Añadir todo» en la ventana de Calendario");
-    location.href = new URL(icsUrl, location.href).href; return;
+    const abs = new URL(icsUrl, location.href).href;
+    // App instalada: la web no puede abrir un .ics, así que se entrega con webcal:// y lo recoge la app Calendario. En Safari: https y «Añadir todo».
+    aviso(navigator.standalone ? "Pulsa «Suscribirse» en la ventana de Calendario" : "Pulsa «Añadir todo» en la ventana de Calendario");
+    location.href = navigator.standalone ? abs.replace(/^https?:/, "webcal:") : abs; return;
   }
   if (matchMedia("(pointer:coarse)").matches && navigator.share) {
     const f = new File([txt], nombre, { type: "text/calendar" });

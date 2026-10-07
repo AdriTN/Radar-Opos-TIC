@@ -248,9 +248,9 @@ export async function ejecutar({ raiz = RAIZ, red = new Red(), pdf = pdfATexto, 
   await mkdir(f("data", "ics"), { recursive: true });
   const evDe = (t) => ({ uid: `${t.pid}-${t.fecha}-${t.etiqueta}`.replace(/\W+/g, "-"), fecha: t.fecha, url: t.url, ...datosEvento(t.etiqueta, t.titulo, t.url) });
   const vivos = todos.filter((t) => !t.cerrado && t.fecha >= hoy).sort((a, b) => a.fecha.localeCompare(b.fecha));
-  await writeFile(f("data", "ics", "todas.ics"), generarICS(vivos.map(evDe), ahora.toISOString()));
+  await writeFile(f("data", "ics", "todas.ics"), generarICS(vivos.map(evDe), ahora.toISOString(), "Radar TIC · todas"));
   const porId = {}; for (const t of vivos) (porId[t.pid] ||= []).push(t);
-  for (const [pid, ts] of Object.entries(porId)) await writeFile(f("data", "ics", pid.replace(/\W+/g, "-") + ".ics"), generarICS(ts.map(evDe), ahora.toISOString()));
+  for (const [pid, ts] of Object.entries(porId)) await writeFile(f("data", "ics", pid.replace(/\W+/g, "-") + ".ics"), generarICS(ts.map(evDe), ahora.toISOString(), `Radar TIC · ${String(ts[0].titulo).slice(0, 35)}`));
   // Recordatorios: sin intervención tuya. Solo de lo que sigues y cuando faltan 7, 3, 1 o 0 días.
   for (const t of todos) {
     const n = difDias(t.fecha, hoy); if (!REC_DIAS.includes(n) || !sigo.includes(t.pid)) continue;

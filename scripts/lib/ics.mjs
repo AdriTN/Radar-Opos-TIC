@@ -23,9 +23,9 @@ export function datosEvento(etiqueta, titulo, url, extra = "") {
     descripcion: [largo, linea, url].filter(Boolean).join("\n") };
 }
 
-export function generarICS(eventos, ahoraISO) {
+export function generarICS(eventos, ahoraISO, nombre = "Radar oposiciones TIC") {
   const L = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Radar-Opos-TIC//ES", "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
-    "X-WR-CALNAME:Radar oposiciones TIC", "X-WR-TIMEZONE:Atlantic/Canary", "REFRESH-INTERVAL;VALUE=DURATION:PT12H"];
+    `X-WR-CALNAME:${esc(nombre)}`, "X-WR-TIMEZONE:Atlantic/Canary", "REFRESH-INTERVAL;VALUE=DURATION:PT12H"];
   const stamp = ahoraISO.replace(/[-:]/g, "").replace(/\.\d+/, "");
   for (const e of eventos) {
     L.push("BEGIN:VEVENT", `UID:${e.uid}@radar-opos-tic`, `DTSTAMP:${stamp}`, `DTSTART;VALUE=DATE:${dia(e.fecha)}`, `DTEND;VALUE=DATE:${sig(e.fecha)}`,

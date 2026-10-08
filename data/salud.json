@@ -1,124 +1,124 @@
 {
- "generado": "2026-10-07T15:43:06.645Z",
+ "generado": "2026-10-08T12:04:01.746Z",
  "fuentes": {
   "boe": {
    "nombre": "BOE · sumario diario (API abierta)",
    "ok": true,
    "detalle": "2 días leídos",
-   "revisada": "2026-10-07T15:43:06.645Z",
-   "ultimoOk": "2026-10-07T15:43:06.645Z",
+   "revisada": "2026-10-08T12:04:01.746Z",
+   "ultimoOk": "2026-10-08T12:04:01.746Z",
    "fallosSeguidos": 0
   },
   "boc": {
    "nombre": "BOC · índice de cada número",
    "ok": true,
-   "detalle": "0 números nuevos (último 2026/201)",
-   "revisada": "2026-10-07T15:43:06.645Z",
-   "ultimoOk": "2026-10-07T15:43:06.645Z",
+   "detalle": "1 números nuevos (último 2026/202)",
+   "revisada": "2026-10-08T12:04:01.746Z",
+   "ultimoOk": "2026-10-08T12:04:01.746Z",
    "fallosSeguidos": 0
   },
   "seed:age-cssti-2025": {
    "nombre": "Texto oficial · age-cssti-2025",
    "ok": true,
    "detalle": "leído",
-   "revisada": "2026-10-07T15:43:06.645Z",
-   "ultimoOk": "2026-10-07T15:43:06.645Z",
+   "revisada": "2026-10-08T12:04:01.746Z",
+   "ultimoOk": "2026-10-08T12:04:01.746Z",
    "fallosSeguidos": 0
   },
   "seed:can-a2-ti-2026": {
    "nombre": "Texto oficial · can-a2-ti-2026",
    "ok": true,
    "detalle": "leído",
-   "revisada": "2026-10-07T15:43:06.645Z",
-   "ultimoOk": "2026-10-07T15:43:06.645Z",
+   "revisada": "2026-10-08T12:04:01.746Z",
+   "ultimoOk": "2026-10-08T12:04:01.746Z",
    "fallosSeguidos": 0
   },
   "retrib:age:sueldos": {
    "nombre": "Retribuciones del personal funcionario (AGE) · Ministerio de Hacienda · sueldo base",
    "ok": false,
    "detalle": "2025: Solo se encontraron 0 grupos (se conserva el último dato válido)",
-   "revisada": "2026-10-07T15:43:06.645Z",
+   "revisada": "2026-10-08T12:04:01.746Z",
    "ultimoOk": null,
-   "fallosSeguidos": 7
+   "fallosSeguidos": 8
   },
   "retrib:age:complementoDestino": {
    "nombre": "Retribuciones del personal funcionario (AGE) · Ministerio de Hacienda · complemento de destino",
    "ok": false,
    "detalle": "2025: Nivel 30 fuera de rango (se conserva el último dato válido)",
-   "revisada": "2026-10-07T15:43:06.645Z",
+   "revisada": "2026-10-08T12:04:01.746Z",
    "ultimoOk": null,
-   "fallosSeguidos": 7
+   "fallosSeguidos": 8
   },
   "retrib:can:sueldos": {
    "nombre": "Retribuciones del personal funcionario (Canarias) · Consejería de Hacienda · sueldo base",
    "ok": false,
    "detalle": "2025: Solo se encontraron 2 grupos (se conserva el último dato válido)",
-   "revisada": "2026-10-07T15:43:06.645Z",
+   "revisada": "2026-10-08T12:04:01.746Z",
    "ultimoOk": null,
-   "fallosSeguidos": 7
+   "fallosSeguidos": 8
   },
   "retrib:can:complementoDestino": {
    "nombre": "Retribuciones del personal funcionario (Canarias) · Consejería de Hacienda · complemento de destino",
    "ok": false,
    "detalle": "2025: Solo 0 niveles (se conserva el último dato válido)",
-   "revisada": "2026-10-07T15:43:06.645Z",
+   "revisada": "2026-10-08T12:04:01.746Z",
    "ultimoOk": null,
-   "fallosSeguidos": 7
+   "fallosSeguidos": 8
   },
   "pagina:inap-gsi-2025": {
    "nombre": "Página · INAP · GSI 2025",
    "ok": true,
    "detalle": "leída",
-   "revisada": "2026-10-07T15:43:06.645Z",
-   "ultimoOk": "2026-10-07T15:43:06.645Z",
+   "revisada": "2026-10-08T12:04:01.746Z",
+   "ultimoOk": "2026-10-08T12:04:01.746Z",
    "fallosSeguidos": 0
   },
   "pagina:sefp-gsi": {
    "nombre": "Página · Función Pública · GSI",
    "ok": true,
    "detalle": "leída",
-   "revisada": "2026-10-07T15:43:06.645Z",
-   "ultimoOk": "2026-10-07T15:43:06.645Z",
+   "revisada": "2026-10-08T12:04:01.746Z",
+   "ultimoOk": "2026-10-08T12:04:01.746Z",
    "fallosSeguidos": 0
   },
   "pagina:can-acceso-libre-2026": {
    "nombre": "Página · Canarias · Convocatorias 2026 acceso libre",
    "ok": true,
    "detalle": "leída",
-   "revisada": "2026-10-07T15:43:06.645Z",
-   "ultimoOk": "2026-10-07T15:43:06.645Z",
+   "revisada": "2026-10-08T12:04:01.746Z",
+   "ultimoOk": "2026-10-08T12:04:01.746Z",
    "fallosSeguidos": 0
   },
   "pagina:can-a2-ti": {
    "nombre": "Página · Canarias · A2 Tecnologías de la Información",
    "ok": true,
    "detalle": "leída",
-   "revisada": "2026-10-07T15:43:06.645Z",
-   "ultimoOk": "2026-10-07T15:43:06.645Z",
+   "revisada": "2026-10-08T12:04:01.746Z",
+   "ultimoOk": "2026-10-08T12:04:01.746Z",
    "fallosSeguidos": 0
   },
   "pagina:can-a1-ti": {
    "nombre": "Página · Canarias · A1 Tecnologías de la Información",
    "ok": true,
    "detalle": "leída",
-   "revisada": "2026-10-07T15:43:06.645Z",
-   "ultimoOk": "2026-10-07T15:43:06.645Z",
+   "revisada": "2026-10-08T12:04:01.746Z",
+   "ultimoOk": "2026-10-08T12:04:01.746Z",
    "fallosSeguidos": 0
   },
   "pagina:can-ofertas": {
    "nombre": "Página · Canarias · Ofertas de empleo público",
    "ok": true,
    "detalle": "leída",
-   "revisada": "2026-10-07T15:43:06.645Z",
-   "ultimoOk": "2026-10-07T15:43:06.645Z",
+   "revisada": "2026-10-08T12:04:01.746Z",
+   "ultimoOk": "2026-10-08T12:04:01.746Z",
    "fallosSeguidos": 0
   },
   "pagina:can-bolsas": {
    "nombre": "Página · Canarias · Listas de empleo, bolsas y complementarias",
    "ok": true,
    "detalle": "leída",
-   "revisada": "2026-10-07T15:43:06.645Z",
-   "ultimoOk": "2026-10-07T15:43:06.645Z",
+   "revisada": "2026-10-08T12:04:01.746Z",
+   "ultimoOk": "2026-10-08T12:04:01.746Z",
    "fallosSeguidos": 0
   }
  }

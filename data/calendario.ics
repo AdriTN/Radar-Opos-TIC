@@ -9,7 +9,7 @@ REFRESH-INTERVAL;VALUE=DURATION:PT12H
 BEGIN:VEVENT
 UID:age-gsi-2025-2026-09-29-Lista-de-aprobados-del-primer-ejercicio@radar
  -opos-tic
-DTSTAMP:20261007T154306Z
+DTSTAMP:20261008T120401Z
 DTSTART;VALUE=DATE:20260929
 DTEND;VALUE=DATE:20260930
 SUMMARY:📝 Lista de aprobados del primer ejercicio · Cuerpo de Gestión de

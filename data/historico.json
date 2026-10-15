@@ -21,6 +21,17 @@
    "tasas": [],
    "grupo": "A1",
    "fuente": "BOC"
+  },
+  "BOE-A-2026-21474": {
+   "id": "BOE-A-2026-21474",
+   "fecha": "2026-10-15",
+   "admin": "AGE",
+   "titulo": "Resolución de 8 de octubre de 2026, de la Secretaría General del Senado, por la que se convoca proceso selectivo para la provisión, por turno libre y de discapacidad, de plazas de Técnico/a Superior de Tecnologías de la Información.",
+   "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-21474",
+   "plazas": [],
+   "tasas": [],
+   "grupo": null,
+   "fuente": "BOE"
   }
  },
  "resultados": {}

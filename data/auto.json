@@ -1,6 +1,38 @@
 {
  "items": [
   {
+   "id": "BOE-A-2026-21474",
+   "fuente": "BOE",
+   "fecha": "2026-10-15",
+   "tipo": "convocatoria",
+   "admin": "AGE",
+   "ambito": "ES",
+   "organismo": "CORTES GENERALES",
+   "titulo": "Resolución de 8 de octubre de 2026, de la Secretaría General del Senado, por la que se convoca proceso selectivo para la provisión, por turno libre y de discapacidad, de plazas de Técnico/a Superior de Tecnologías de la Información.",
+   "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-21474",
+   "pdf": "https://www.boe.es/boe/dias/2026/10/15/pdfs/BOE-A-2026-21474.pdf",
+   "xml": "https://www.boe.es/diario_boe/xml.php?id=BOE-A-2026-21474",
+   "datos": {
+    "plazo": {
+     "dias": 15,
+     "tipo": "habiles",
+     "desdeSiguiente": true
+    },
+    "plazas": [],
+    "tasas": [],
+    "titulacion": "Quienes tengan una titulación obtenida en el extranjero deberán estar en posesión de la correspondiente credencial de homologación o, en su caso, del correspondiente certificado de equivalencia.",
+    "enlaces": [],
+    "grupo": null
+   },
+   "plazo": {
+    "dias": 15,
+    "tipo": "habiles",
+    "desde": "2026-10-15",
+    "fin": "2026-11-05",
+    "fuente": "texto"
+   }
+  },
+  {
    "id": "BOC-A-2026-199-3422",
    "fuente": "BOC",
    "fecha": "2026-10-05",
@@ -94,11 +126,12 @@
   "2026-10-11",
   "2026-10-12",
   "2026-10-13",
-  "2026-10-14"
+  "2026-10-14",
+  "2026-10-15"
  ],
  "boc": {
   "anio": 2026,
-  "num": 205
+  "num": 206
  },
  "errores": [
   "Retribuciones del personal funcionario (AGE) · Ministerio de Hacienda · sueldo base: 2025: Solo se encontraron 0 grupos (se conserva el último dato válido)",
@@ -106,5 +139,5 @@
   "Retribuciones del personal funcionario (Canarias) · Consejería de Hacienda · sueldo base: 2025: Solo se encontraron 2 grupos (se conserva el último dato válido)",
   "Retribuciones del personal funcionario (Canarias) · Consejería de Hacienda · complemento de destino: 2025: Solo 0 niveles (se conserva el último dato válido)"
  ],
- "generado": "2026-10-14T10:15:41.296Z"
+ "generado": "2026-10-15T09:58:03.462Z"
 }

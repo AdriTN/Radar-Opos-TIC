@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Radar-Opos-TIC//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Radar TIC · Resolución de 8 de octubre de 2026\,
+X-WR-TIMEZONE:Atlantic/Canary
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+BEGIN:VEVENT
+UID:BOE-A-2026-21474-2026-11-05-Fin-del-plazo@radar-opos-tic
+DTSTAMP:20261015T095803Z
+DTSTART;VALUE=DATE:20261105
+DTEND;VALUE=DATE:20261106
+SUMMARY:⏰ Fin del plazo · Resolución de 8 de octubre de 2026\, de la Se…
+DESCRIPTION:Resolución de 8 de octubre de 2026\, de la Secretaría General
+  del Senado\, por la que se convoca proceso select…\nhttps://www.boe.es/d
+ iario_boe/txt.php?id=BOE-A-2026-21474
+URL:https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-21474
+CATEGORIES:Plazo
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Fin del plazo · Resolución de 8 de octubre de 2026\, de la 
+ Se…
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Fin del plazo · Resolución de 8 de octubre de 2026\, de la 
+ Se…
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -131,11 +131,12 @@
   "2026-10-16",
   "2026-10-17",
   "2026-10-18",
-  "2026-10-19"
+  "2026-10-19",
+  "2026-10-20"
  ],
  "boc": {
   "anio": 2026,
-  "num": 208
+  "num": 209
  },
  "errores": [
   "Retribuciones del personal funcionario (AGE) · Ministerio de Hacienda · sueldo base: 2025: Solo se encontraron 0 grupos (se conserva el último dato válido)",
@@ -143,5 +144,5 @@
   "Retribuciones del personal funcionario (Canarias) · Consejería de Hacienda · sueldo base: 2025: Solo se encontraron 2 grupos (se conserva el último dato válido)",
   "Retribuciones del personal funcionario (Canarias) · Consejería de Hacienda · complemento de destino: 2025: Solo 0 niveles (se conserva el último dato válido)"
  ],
- "generado": "2026-10-19T10:48:30.933Z"
+ "generado": "2026-10-20T10:06:35.873Z"
 }

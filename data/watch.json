@@ -4,51 +4,51 @@
    "nombre": "INAP · GSI 2025",
    "url": "https://sede.inap.gob.es/es/procedimientos-y-servicios/seleccion/procesos-selectivos-de-cuerpos-y-escalas-generales/cuerpo-de-gestion-de-sistemas-e-informatica-de-la-administracion-del-estado-ingreso-libre-convocatoria-2025",
    "hash": "a142a936e35e6b50",
-   "revisada": "2026-10-21T10:12:35.249Z",
+   "revisada": "2026-10-22T10:14:04.519Z",
    "cambio": null
   },
   "sefp-gsi": {
    "nombre": "Función Pública · GSI",
    "url": "https://digital.gob.es/funcion-publica/dgfp/acceso-empleo-publico/convocatorias-personal-funcionario/generales/convocatorias-2021/gsi-2021--2022---2023--y-2024",
-   "hash": "4e55341cdce74b88",
-   "revisada": "2026-10-21T10:12:35.249Z",
-   "cambio": "2026-10-20T10:06:35.873Z"
+   "hash": "12efd470fdfb260e",
+   "revisada": "2026-10-22T10:14:04.519Z",
+   "cambio": "2026-10-22T10:14:04.519Z"
   },
   "can-acceso-libre-2026": {
    "nombre": "Canarias · Convocatorias 2026 acceso libre",
    "url": "https://www.gobiernodecanarias.org/administracionespublicas/funcionpublica/acceso/convocatorias-en-curso/2026/Acceso_libre/",
-   "hash": "2637a34c92c390dc",
-   "revisada": "2026-10-21T10:12:35.249Z",
-   "cambio": "2026-10-21T10:12:35.249Z"
+   "hash": "c8bc6c2aa9bef830",
+   "revisada": "2026-10-22T10:14:04.519Z",
+   "cambio": "2026-10-22T10:14:04.519Z"
   },
   "can-a2-ti": {
    "nombre": "Canarias · A2 Tecnologías de la Información",
    "url": "https://www.gobiernodecanarias.org/administracionespublicas/funcionpublica/acceso/convocatorias-en-curso/2026/Acceso_libre/ficha/TECNOLOGIAS-DE-LA-INFORMACION-Turno-Libre-00002/",
    "hash": "b86d9cada64c3842",
-   "revisada": "2026-10-21T10:12:35.249Z",
+   "revisada": "2026-10-22T10:14:04.519Z",
    "cambio": "2026-10-16T09:52:53.363Z"
   },
   "can-a1-ti": {
    "nombre": "Canarias · A1 Tecnologías de la Información",
    "url": "https://www.gobiernodecanarias.org/administracionespublicas/funcionpublica/acceso/convocatorias-en-curso/2026/Acceso_libre/ficha/TECNOLOGIAS-DE-LA-INFORMACION-Turno-Libre-00001/",
    "hash": "865de708f201eaee",
-   "revisada": "2026-10-21T10:12:35.249Z",
+   "revisada": "2026-10-22T10:14:04.519Z",
    "cambio": null
   },
   "can-ofertas": {
    "nombre": "Canarias · Ofertas de empleo público",
    "url": "https://www.gobiernodecanarias.org/administracionespublicas/funcionpublica/acceso/ofertas-empleo-publico/",
    "hash": "77b1975d1b394cdf",
-   "revisada": "2026-10-21T10:12:35.249Z",
+   "revisada": "2026-10-22T10:14:04.519Z",
    "cambio": null
   },
   "can-bolsas": {
    "nombre": "Canarias · Listas de empleo, bolsas y complementarias",
    "url": "https://www.gobiernodecanarias.org/administracionespublicas/funcionpublica/acceso/listas-empleo-bolsas/",
    "hash": "563426052b6016a5",
-   "revisada": "2026-10-21T10:12:35.249Z",
+   "revisada": "2026-10-22T10:14:04.519Z",
    "cambio": null
   }
  },
- "generado": "2026-10-21T10:12:35.249Z"
+ "generado": "2026-10-22T10:14:04.519Z"
 }

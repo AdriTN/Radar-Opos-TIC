@@ -134,17 +134,18 @@
   "2026-10-19",
   "2026-10-20",
   "2026-10-21",
-  "2026-10-22"
+  "2026-10-22",
+  "2026-10-23"
  ],
  "boc": {
   "anio": 2026,
-  "num": 211
+  "num": 213
  },
  "errores": [
   "Retribuciones del personal funcionario (AGE) · Ministerio de Hacienda · sueldo base: 2025: Solo se encontraron 0 grupos (se conserva el último dato válido)",
   "Retribuciones del personal funcionario (AGE) · Ministerio de Hacienda · complemento de destino: 2025: Nivel 30 fuera de rango (se conserva el último dato válido)",
-  "Retribuciones del personal funcionario (Canarias) · Consejería de Hacienda · sueldo base: 2025: Solo se encontraron 2 grupos (se conserva el último dato válido)",
+  "Retribuciones del personal funcionario (Canarias) · Consejería de Hacienda · sueldo base: 2025: The operation was aborted due to timeout (se conserva el último dato válido)",
   "Retribuciones del personal funcionario (Canarias) · Consejería de Hacienda · complemento de destino: 2025: Solo 0 niveles (se conserva el último dato válido)"
  ],
- "generado": "2026-10-22T10:14:04.519Z"
+ "generado": "2026-10-23T10:07:26.884Z"
 }

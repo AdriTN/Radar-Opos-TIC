@@ -1,0 +1,34 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Radar-Opos-TIC//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Radar TIC · Resolución de 11 de noviembre de 20
+X-WR-TIMEZONE:Atlantic/Canary
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+BEGIN:VEVENT
+UID:BOE-A-2026-24218-2026-12-18-Fin-del-plazo@radar-opos-tic
+DTSTAMP:20261120T140257Z
+DTSTART;VALUE=DATE:20261218
+DTEND;VALUE=DATE:20261219
+SUMMARY:⏰ Fin del plazo · Resolución de 11 de noviembre de 2026\, del I…
+DESCRIPTION:Resolución de 11 de noviembre de 2026\, del Instituto Naciona
+ l de Gestión Sanitaria\, por la que se convoca pro…\nhttps://www.boe.es/d
+ iario_boe/txt.php?id=BOE-A-2026-24218
+URL:https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-24218
+CATEGORIES:Plazo
+TRANSP:TRANSPARENT
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Fin del plazo · Resolución de 11 de noviembre de 2026\, del
+  I…
+TRIGGER:-P6DT15H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:⏰ Fin del plazo · Resolución de 11 de noviembre de 2026\, del
+  I…
+TRIGGER:-PT15H
+END:VALARM
+END:VEVENT
+END:VCALENDAR

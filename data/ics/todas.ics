@@ -7,27 +7,27 @@ X-WR-CALNAME:Radar TIC · todas
 X-WR-TIMEZONE:Atlantic/Canary
 REFRESH-INTERVAL;VALUE=DURATION:PT12H
 BEGIN:VEVENT
-UID:BOE-A-2026-21474-2026-11-05-Fin-del-plazo@radar-opos-tic
-DTSTAMP:20261105T131426Z
-DTSTART;VALUE=DATE:20261105
-DTEND;VALUE=DATE:20261106
-SUMMARY:⏰ Fin del plazo · Resolución de 8 de octubre de 2026\, de la Se…
-DESCRIPTION:Resolución de 8 de octubre de 2026\, de la Secretaría General
-  del Senado\, por la que se convoca proceso select…\nhttps://www.boe.es/d
- iario_boe/txt.php?id=BOE-A-2026-21474
-URL:https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-21474
+UID:BOE-A-2026-24218-2026-12-18-Fin-del-plazo@radar-opos-tic
+DTSTAMP:20261120T140257Z
+DTSTART;VALUE=DATE:20261218
+DTEND;VALUE=DATE:20261219
+SUMMARY:⏰ Fin del plazo · Resolución de 11 de noviembre de 2026\, del I…
+DESCRIPTION:Resolución de 11 de noviembre de 2026\, del Instituto Naciona
+ l de Gestión Sanitaria\, por la que se convoca pro…\nhttps://www.boe.es/d
+ iario_boe/txt.php?id=BOE-A-2026-24218
+URL:https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-24218
 CATEGORIES:Plazo
 TRANSP:TRANSPARENT
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:⏰ Fin del plazo · Resolución de 8 de octubre de 2026\, de la 
- Se…
+DESCRIPTION:⏰ Fin del plazo · Resolución de 11 de noviembre de 2026\, del
+  I…
 TRIGGER:-P6DT15H
 END:VALARM
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:⏰ Fin del plazo · Resolución de 8 de octubre de 2026\, de la 
- Se…
+DESCRIPTION:⏰ Fin del plazo · Resolución de 11 de noviembre de 2026\, del
+  I…
 TRIGGER:-PT15H
 END:VALARM
 END:VEVENT

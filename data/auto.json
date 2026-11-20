@@ -1,6 +1,43 @@
 {
  "items": [
   {
+   "id": "BOE-A-2026-24218",
+   "fuente": "BOE",
+   "fecha": "2026-11-19",
+   "tipo": "convocatoria",
+   "admin": "AGE",
+   "ambito": "ES",
+   "organismo": "MINISTERIO DE SANIDAD",
+   "titulo": "Resolución de 11 de noviembre de 2026, del Instituto Nacional de Gestión Sanitaria, por la que se convoca proceso selectivo por concurso-oposición, por el sistema general de acceso libre, para acceso a la condición de personal estatutario fijo en plazas de la categoría de Técnico/a Titulado/a Medio en Informática.",
+   "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-24218",
+   "pdf": "https://www.boe.es/boe/dias/2026/11/19/pdfs/BOE-A-2026-24218.pdf",
+   "xml": "https://www.boe.es/diario_boe/xml.php?id=BOE-A-2026-24218",
+   "datos": {
+    "plazo": {
+     "dias": 20,
+     "tipo": "habiles",
+     "desdeSiguiente": true
+    },
+    "plazas": [],
+    "tasas": [],
+    "titulacion": "8 El personal funcionario español de Organismos Internacionales podrá acceder al empleo público siempre que posea la titulación requerida y supere los correspondientes procesos selectivos.",
+    "enlaces": [
+     "http://administracion.gob.es",
+     "https://ips.redsara.es/IPSC/secure/buscarConvocatorias",
+     "https://centrodeservicios.redsara.es/ayuda/consulta/IPS",
+     "http://administracion.gob.es/PAG/PID"
+    ],
+    "grupo": null
+   },
+   "plazo": {
+    "dias": 20,
+    "tipo": "habiles",
+    "desde": "2026-11-19",
+    "fin": "2026-12-18",
+    "fuente": "texto"
+   }
+  },
+  {
    "id": "BOE-A-2026-21474",
    "fuente": "BOE",
    "fecha": "2026-10-15",
@@ -148,11 +185,19 @@
   "2026-11-02",
   "2026-11-03",
   "2026-11-04",
-  "2026-11-05"
+  "2026-11-05",
+  "2026-11-13",
+  "2026-11-14",
+  "2026-11-15",
+  "2026-11-16",
+  "2026-11-17",
+  "2026-11-18",
+  "2026-11-19",
+  "2026-11-20"
  ],
  "boc": {
   "anio": 2026,
-  "num": 221
+  "num": 235
  },
  "errores": [
   "Retribuciones del personal funcionario (AGE) · Ministerio de Hacienda · sueldo base: 2025: Solo se encontraron 0 grupos (se conserva el último dato válido)",
@@ -160,5 +205,5 @@
   "Retribuciones del personal funcionario (Canarias) · Consejería de Hacienda · sueldo base: 2025: Solo se encontraron 2 grupos (se conserva el último dato válido)",
   "Retribuciones del personal funcionario (Canarias) · Consejería de Hacienda · complemento de destino: 2025: Solo 0 niveles (se conserva el último dato válido)"
  ],
- "generado": "2026-11-05T13:14:26.041Z"
+ "generado": "2026-11-20T14:02:57.502Z"
 }
